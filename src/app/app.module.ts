@@ -8,6 +8,7 @@ import { ReviewMerchantComponent } from './components/review-merchant/review-mer
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 import { PurchaseProductsComponent } from './components/purchase-products/purchase-products.component';
 import { DisplayProductsComponent } from './components/display-products/display-products.component';
+import { MainHeaderComponent } from './small-component/main-header/main-header.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DisplayProductsComponent } from './components/display-products/display-
     ManageProductsComponent,
     PurchaseProductsComponent,
     DisplayProductsComponent,
+    MainHeaderComponent,
   ],
   imports: [
     BrowserModule,
