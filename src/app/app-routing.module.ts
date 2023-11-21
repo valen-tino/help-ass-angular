@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'manage-products', component: ManageProductsComponent },
   { path: 'purchase-products', component: PurchaseProductsComponent },
   { path: 'display-products', component: DisplayProductsComponent },
-  { path: '', redirectTo: '/display-products', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
