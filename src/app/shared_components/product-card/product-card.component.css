@@ -1,0 +1,34 @@
+.card-container{
+    @apply flex flex-col h-full bg-white border border-[#e4e6ea] shadow-sm rounded-xl;
+}
+
+span.category{
+    @apply block mb-1 text-xs font-semibold text-blue-600 uppercase;
+}
+
+p.excerpt{
+    @apply mt-3 text-gray-500;
+}
+
+p.price{
+    @apply mt-3 text-xl text-blue-600;
+}
+
+a.product-buttons{
+    @apply inline-flex items-center justify-center w-full px-4 py-3 text-sm font-medium shadow-sm gap-x-2  hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none 
+}
+
+a.product-buttons.view{
+    @apply text-gray-800 bg-white rounded-es-xl;
+}
+
+a.product-buttons.purchase{
+    @apply bg-blue-600 text-gray-50 rounded-ee-xl;
+}
+
+
+
+
+
+
+

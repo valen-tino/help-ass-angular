@@ -3,23 +3,67 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterMerchantComponent } from './components/register-merchant/register-merchant.component';
-import { ReviewMerchantComponent } from './components/review-merchant/review-merchant.component';
-import { ManageProductsComponent } from './components/manage-products/manage-products.component';
-import { PurchaseProductsComponent } from './components/purchase-products/purchase-products.component';
-import { DisplayProductsComponent } from './components/display-products/display-products.component';
-import { MainHeaderComponent } from './small-component/main-header/main-header.component';
+
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+
+import { MerchantDashboardComponent } from './merchant/merchant-dashboard/merchant-dashboard.component';
+import { ManageProductsComponent } from './merchant/manage-products/manage-products.component';
+import { MonthlyReportComponent } from './merchant/monthly-report/monthly-report.component';
+import { YearlyReportComponent } from './merchant/yearly-report/yearly-report.component';
+
+import { CustDashboardComponent } from './customer/cust-dashboard/cust-dashboard.component';
+import { ProductListComponent } from './customer/product-list/product-list.component';
+import { ProductDetailsComponent } from './customer/product-details/product-details.component';
+import { PurchaseProductComponent } from './customer/purchase-product/purchase-product.component';
+import { PurchaseReceiptComponent } from './customer/purchase-receipt/purchase-receipt.component';
+import { TransactionHistoryComponent } from './customer/transaction-history/transaction-history.component';
+
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { MerchantApprovalComponent } from './admin/merchant-approval/merchant-approval.component';
+
+import { MainComponent } from './shared_components/navbar/main/main.component';
+import { AdminComponent } from './shared_components/navbar/admin/admin.component';
+import { MerchantComponent } from './shared_components/navbar/merchant/merchant.component';
+
+import { HomeComponent } from './pages/home/home.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { MerchantsComponent } from './pages/merchants/merchants.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { ProductCardComponent } from './shared_components/product-card/product-card.component';
+import { HeroSectionComponent } from './shared_components/hero-section/hero-section.component';
+import { ProductDetailsModalComponent } from './shared_components/product-details-modal/product-details-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterMerchantComponent,
-    ReviewMerchantComponent,
+    LoginComponent,
+    RegisterComponent,
+    MerchantDashboardComponent,
     ManageProductsComponent,
-    PurchaseProductsComponent,
-    DisplayProductsComponent,
-    MainHeaderComponent,
-  ],
+    MonthlyReportComponent,
+    YearlyReportComponent,
+    CustDashboardComponent,
+    ProductListComponent,
+    ProductDetailsComponent,
+    PurchaseProductComponent,
+    PurchaseReceiptComponent,
+    TransactionHistoryComponent,
+    AdminDashboardComponent,
+    MerchantApprovalComponent,
+    MainComponent,
+    AdminComponent,
+    MerchantComponent,
+    HomeComponent,
+    ProductsComponent,
+    MerchantsComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    ProductCardComponent,
+    HeroSectionComponent,
+    ProductDetailsModalComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule

@@ -1,0 +1,75 @@
+<app-main></app-main>
+<body>
+
+<!-- Hero -->
+<div class="relative 
+    overflow-hidden 
+    before:absolute 
+    before:top-0 
+    before:start-1/2 
+    before:bg-[url('https://worldtourismforum.net/wp-content/uploads/2020/10/malaysia.jpg')] 
+    before:bg-no-repeat 
+    before:bg-top 
+    before:bg-cover 
+    before:w-full 
+    before:h-full 
+    before:-z-[1] 
+    before:transform 
+    before:-translate-x-1/2
+    bg-gray-700
+    bg-opacity-50">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
+    
+      <!-- Title -->
+      <div class="max-w-2xl mx-auto mt-5 text-center">
+        <h1 class="block text-4xl font-bold text-gray-800 md:text-5xl lg:text-6xl dark:text-gray-200">
+          Discover Amazing Deals in Malaysia with
+          <span class="text-transparent bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600">PromoTourism</span>
+        </h1>
+      </div>
+      <!-- End Title -->
+  
+      <div class="max-w-3xl mx-auto mt-5 text-center">
+        <p class="text-lg text-white dark:text-white">Explore our curated selection of tourism products at unbeatable prices.</p>
+      </div>
+  
+      <!-- Buttons -->
+      <div class="flex justify-center gap-3 mt-8">
+        <a class="inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-center text-white border border-transparent rounded-md gap-x-3 bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 focus:outline-none focus:ring-1 focus:ring-gray-600 dark:focus:ring-offset-gray-800" href="#">
+          Shop Now
+          <svg class="flex-shrink-0 w-4 h-4" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </a>
+        
+      </div>
+      <!-- End Buttons -->
+
+    </div>
+</div>
+<!-- End Hero -->
+
+<!-- Card Blog -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+
+    <h2 class="block py-5 text-4xl font-bold text-gray-800 md:text-5xl lg:text-6xl dark:text-gray-200">
+        <span class="text-transparent bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600">Our Products</span>
+      </h2>
+
+    <!-- Product Tabs -->
+    <div class="flex space-x-4">
+        <button *ngFor="let category of uniqueCategories" (click)="filterProductsByCategory(category)" class="px-4 py-2 text-gray-600 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none focus:ring focus:border-blue-300">
+        {{ category }}
+        </button>
+    </div><br/>
+    
+    <!-- Grid -->
+    <div class="grid gap-6" [ngClass]="{'sm:grid-cols-2': featuredProducts.length > 1, 'lg:grid-cols-3': featuredProducts.length > 2}">
+        <!-- Card Loop -->
+        <app-product-card *ngFor="let product of getFilteredProducts()" [product]="product"></app-product-card>
+        <!-- End Card -->
+      </div>
+      
+    <!-- End Grid -->
+  </div>
+  <!-- End Card Blog -->
