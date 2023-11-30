@@ -239,28 +239,28 @@
       {
         "id": 14,
         "merchantID": 7000,
-        "slug": "",
-        "image": "",
-        "title": "",
-        "category": "",
-        "excerpt": "",
-        "description": "",
+        "slug": "perak-cave-temple",
+        "image": "perak-cave-temple.png",
+        "title": "Perak Cave Temple",
+        "category": "Temple Tour",
+        "excerpt": "Climb the limestone cliffs of Ipoh to find the Perak Cave Template, a spiritual refuge buried inside nature's rough embrace.",
+        "description": "Explore the vast interiors, which are filled with magnificent sculptures and religious artifacts, and soak in the spiritual atmosphere that pervades thsi sacred area.",
         "available": true,
         "price": 17000,
-        "purchaseLink": ""
+        "purchaseLink": "https://example.com/perak-cave-temple"
       },
       {
         "id": 15,
         "merchantID": 7000,
-        "slug": "",
-        "image": "",
-        "title": "",
-        "category": "",
-        "excerpt": "",
-        "description": "",
+        "slug": "lost-world-of-tambun",
+        "image": "lost-world-of-tambun.png",
+        "title": "Lost World Of Tambun",
+        "category": "Theme Park",
+        "excerpt": "At the Lost World of Tambun, where a lively tapestry of adventure, relaxation, and family-friendly entertainment unfolds against the backdrop of Ipoh's natural beauty, discover a world of wonders.",
+        "description": "Explore this expansive theme park that offers a diverse range of attractions, starting from relaxing hot springs, tranquil scenery, and exhilarating rides and shows.",
         "available": true,
         "price": 16000,
-        "purchaseLink": ""
+        "purchaseLink": "https://example.com/lost-world-of-tambun"
       }
     ]
   }
