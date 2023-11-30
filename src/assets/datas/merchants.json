@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "slug": "kuala-lumpur-explorers",
+    "name": "Kuala Lumpur Explorers",
+    "location": "Kuala Lumpur",
+    "description": "Offering unforgettable experiences in Malaysia's capital.",
+    "rating": 4.5,
+    "products": [
+      {
+        "id": 1,
+        "merchantID" : 1000,
+        "slug":"kl-shopping-extravaganza-test",
+        "image": "pexels-alex-azabache-3243021.jpg",
+        "title": "KL Shopping Extravaganza Test",
+        "category": "Shopping Tour",
+        "excerpt": "Indulge in a unique shopping experience with our curated tour in the heart of Kuala Lumpur.",
+        "description": "Explore the vibrant markets and shopping districts, and shop for the finest local and international products.",
+        "available": true,
+        "price": 16000,
+        "purchaseLink": "https://example.com/kl-shopping-tour"
+      },
+      {
+        "id": 2,
+        "merchantID" : 1000,
+        "slug":"kl-birdwatchers-paradise",
+        "image": "pexels-ariful-haque-3823436.jpg",
+        "title": "KL Birdwatcher’s Paradise",
+        "category": "Birding Tour",
+        "excerpt": "Discover a world of exotic birds in the lush landscapes surrounding Kuala Lumpur.",
+        "description": "Embark on an unforgettable birding journey, guided by experienced ornithologists, and witness the beauty of diverse bird species.",
+        "available": true,
+        "price": 18000,
+        "purchaseLink": "https://example.com/kl-birding-adventure"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "slug":"selangor-odyssey-tours",
+    "name": "Selangor Odyssey Tours",
+    "location": "Selangor",
+    "description": "Providing unforgettable experiences in the diverse state of Selangor.",
+    "rating": 4.5,
+    "products": [
+      {
+        "id": 3,
+        "merchantID" : 2000,
+        "slug":"selangor-shopping-extravaganza",
+        "image": "pexels-niko-cezar-3731615.jpg",
+        "title": "Selangor Shopping Extravaganza",
+        "category": "Shopping Tour",
+        "excerpt": "Indulge in a unique shopping experience with our curated tour in the diverse state of Selangor.",
+        "description": "Explore the vibrant markets and shopping districts, and shop for the finest local and international products.",
+        "available": true,
+        "price": 16000,
+        "purchaseLink": "https://example.com/selangor-shopping-tour"
+      },
+      {
+        "id": 4,
+        "merchantID" : 2000,
+        "slug":"selangor-luxury-golf-retreat",
+        "image": "pexels-zukiman-mohamad-22804.jpg",
+        "title": "Selangor Luxury Golf Retreat",
+        "category": "Golfing",
+        "excerpt": "Tee off in style at world-class golf courses with breathtaking views in Selangor.",
+        "description": "Enjoy an exclusive golfing experience, combining luxurious accommodations and top-notch golf facilities.",
+        "available": true,
+        "price": 22000,
+        "purchaseLink": "https://example.com/selangor-golfing-experience"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "slug":"malaysian-adventure-tours",
+    "name": "Malaysian Adventure Tours",
+    "location": "Various Locations",
+    "description": "Providing unforgettable tours and experiences across Malaysia.",
+    "rating": 4.5,
+    "products": [
+      {
+        "id": 5,
+        "merchantID" : 3000,
+        "slug":"malaysian-diving-adventure",
+        "image": "pexels-jeremy-bishop-2765871.jpg",
+        "title": "Malaysian Deep Blue Expedition",
+        "category": "Diving",
+        "excerpt": "Plunge into the mesmerizing underwater world and explore vibrant coral reefs in Malaysia.",
+        "description": "Join a thrilling diving adventure, led by certified instructors, and witness marine life like never before.",
+        "available": true,
+        "price": 20000,
+        "purchaseLink": "https://example.com/malaysian-diving-adventure"
+      }
+    ]
+  }
+]

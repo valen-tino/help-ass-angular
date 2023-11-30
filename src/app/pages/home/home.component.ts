@@ -1,6 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-interface Product {
+export interface Merchant {
+  id: number;
+  name: string;
+  location: string;
+  description: string;
+  rating: number;
+  products: Product[];
+}
+
+export interface Product {
+slug: any;
   id: number;
   image: string;
   title: string;
@@ -8,6 +19,7 @@ interface Product {
   excerpt: string;
   description: string;
   available: boolean;
+  price: number; // Added 'price' field
   purchaseLink: string;
 }
 
@@ -16,51 +28,13 @@ interface Product {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  // Mock data, replace this with your actual product data
-  featuredProducts: Product[] = [
-    {
-      id: 1,
-      image: 'path/to/shopping-tour-image.jpg',
-      title: 'Shopping Extravaganza',
-      category: 'Shopping Tour',
-      excerpt: 'Indulge in a unique shopping experience with our curated tour.',
-      description: 'Explore the vibrant markets and shopping districts, and shop for the finest local and international products.',
-      available: true,
-      purchaseLink: 'https://example.com/shopping-tour'
-    },
-    {
-      id: 2,
-      image: 'path/to/birding-tour-image.jpg',
-      title: 'Birdwatcher’s Paradise',
-      category: 'Birding Tour',
-      excerpt: 'Discover a world of exotic birds and their natural habitats.',
-      description: 'Embark on an unforgettable birding journey, guided by experienced ornithologists, and witness the beauty of diverse bird species.',
-      available: true,
-      purchaseLink: 'https://example.com/birding-tour'
-    },
-    {
-      id: 3,
-      image: 'path/to/golfing-experience-image.jpg',
-      title: 'Luxury Golf Retreat',
-      category: 'Golfing',
-      excerpt: 'Tee off in style at world-class golf courses with breathtaking views.',
-      description: 'Enjoy an exclusive golfing experience, combining luxurious accommodations and top-notch golf facilities.',
-      available: true,
-      purchaseLink: 'https://example.com/golfing-experience'
-    },
-    {
-      id: 4,
-      image: 'path/to/diving-adventure-image.jpg',
-      title: 'Deep Blue Expedition',
-      category: 'Diving',
-      excerpt: 'Plunge into the mesmerizing underwater world and explore vibrant coral reefs.',
-      description: 'Join a thrilling diving adventure, led by certified instructors, and witness marine life like never before.',
-      available: true,
-      purchaseLink: 'https://example.com/diving-adventure'
-    }
-  ];
+  // Array to store the merchant data
+  merchants: Merchant[] = [];
+
+  // Array to store the product data
+  featuredProducts: Product[] = [];
 
   // Unique categories for filtering
   uniqueCategories: string[] = [];
@@ -68,8 +42,25 @@ export class HomeComponent {
   // Currently selected category for filtering
   selectedCategory: string | null = null;
 
-  constructor() {
-    this.initData();
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.loadData();
+  }
+
+  loadData() {
+    // Use HttpClient to load data from the JSON file
+    this.http.get<Merchant[]>('assets/datas/merchants.json').subscribe(
+      (data) => {
+        this.merchants = data;
+        // Extract products from all merchants and flatten the array
+        this.featuredProducts = data.flatMap(merchant => merchant.products);
+        this.initData();
+      },
+      (error) => {
+        console.error('Error loading merchant data:', error);
+      }
+    );
   }
 
   initData() {
@@ -99,4 +90,13 @@ export class HomeComponent {
     }
     return this.featuredProducts;
   }
+
+  getMerchants(product: Product): Merchant {
+    // Find the first merchant that contains the specified product
+    const merchant = this.merchants.find(m => m.products.some(p => p.id === product.id));
+  
+    // Use non-null assertion operator (!) to indicate that merchant is not null
+    return merchant!;
+  }
+  
 }

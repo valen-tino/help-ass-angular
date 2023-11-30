@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +34,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ProductCardComponent } from './shared_components/product-card/product-card.component';
 import { HeroSectionComponent } from './shared_components/hero-section/hero-section.component';
-import { ProductDetailsModalComponent } from './shared_components/product-details-modal/product-details-modal.component';
+import { ProductService } from './services/product-service.service';
 
 @NgModule({
   declarations: [
@@ -62,13 +63,13 @@ import { ProductDetailsModalComponent } from './shared_components/product-detail
     ContactUsComponent,
     ProductCardComponent,
     HeroSectionComponent,
-    ProductDetailsModalComponent,
     ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

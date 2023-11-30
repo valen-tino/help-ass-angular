@@ -1,19 +1,19 @@
-<div class="relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('{{ backgroundUrl }}')] before:bg-no-repeat before:bg-top before:bg-cover before:w-full before:h-full before:-z-[1] before:transform before:-translate-x-1/2 bg-gray-700 bg-opacity-50">
-    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
+<div class="relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-no-repeat before:bg-top before:bg-cover before:w-full before:h-full before:-z-[1] before:transform before:-translate-x-1/2 bg-gray-700 bg-opacity-50" [ngStyle]="{ 'background-image': 'url(assets/images/' + backgroundUrl + ')' }">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24">
       <!-- Title -->
-      <div class="max-w-2xl mx-auto mt-5 text-center">
+      <div class="max-w-2xl mx-auto mb-5 text-center">
         <h1 class="block text-4xl font-bold text-gray-800 md:text-5xl lg:text-6xl dark:text-gray-200">
           {{ headingText }}
         </h1>
       </div>
       <!-- End Title -->
   
-      <div class="max-w-3xl mx-auto mt-5 text-center">
+      <div class="max-w-3xl mx-auto mb-5 text-center">
         <p class="text-lg text-white dark:text-white">{{ subheadingText }}</p>
       </div>
   
       <!-- Buttons -->
-      <div class="flex justify-center gap-3 mt-8">
+      <div class="flex justify-center gap-3 mb-8">
         <a class="inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-center text-white border border-transparent rounded-md gap-x-3 bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 focus:outline-none focus:ring-1 focus:ring-gray-600 dark:focus:ring-offset-gray-800" [href]="buttonUrl">
           {{ buttonText }}
           <svg class="flex-shrink-0 w-4 h-4" width="16" height="16" viewBox="0 0 16 16" fill="none">

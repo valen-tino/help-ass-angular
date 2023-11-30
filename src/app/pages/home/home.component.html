@@ -18,7 +18,7 @@
     before:-translate-x-1/2
     bg-gray-700
     bg-opacity-50">
-    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24">
     
       <!-- Title -->
       <div class="max-w-2xl mx-auto mt-5 text-center">
@@ -64,12 +64,14 @@
     </div><br/>
     
     <!-- Grid -->
-    <div class="grid gap-6" [ngClass]="{'sm:grid-cols-2': featuredProducts.length > 1, 'lg:grid-cols-3': featuredProducts.length > 2}">
+    <div class="grid gap-4" [ngClass]="{
+        'md:grid-cols-2': getFilteredProducts().length > 2,
+        'lg:grid-cols-3': getFilteredProducts().length > 3
+      }">
         <!-- Card Loop -->
-        <app-product-card *ngFor="let product of getFilteredProducts()" [product]="product"></app-product-card>
+        <app-product-card *ngFor="let product of getFilteredProducts()" [product]="product" [merchant]="getMerchants(product)"></app-product-card>
         <!-- End Card -->
       </div>
-      
     <!-- End Grid -->
   </div>
   <!-- End Card Blog -->

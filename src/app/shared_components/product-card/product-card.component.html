@@ -1,12 +1,12 @@
 <div *ngIf="product.available" class="card-container">
     <div class="flex flex-col items-center justify-center bg-blue-600 h-52 rounded-t-xl">
-      <img src="{{ product.image }}" alt="{{ product.title }}" class="w-28 h-28">
+      <img [src]="'../../../assets/images/' + product.image" [alt]="product.title" class="w-full h-full bg-cover rounded-tr-xl rounded-t-xl">
     </div>
-    <div class="p-4 md:p-6 ">
+    <div class="p-4 md:p-6">
       <span class="category">
         {{ product.category }}
       </span>
-      <h3 class="text-xl font-semibold text-gray-800 ">
+      <h3 class="text-xl font-semibold text-gray-800">
         {{ product.title }}
       </h3>
       <p class="excerpt">
@@ -16,12 +16,17 @@
         {{ product.price }} RM
       </p>
     </div>
-    <div class="flex mt-auto border-t border-gray-200 divide-x divide-gray-200 ">
-      <a class="product-buttons view" [href]="product.purchaseLink">
-        View Details
-      </a>
-      <a class="product-buttons purchase" [href]="product.purchaseLink">
-        Purchase Now
-      </a>
+    <div class="p-4 md:p-6">
+      <p class="excerpt">
+        {{ merchant.name }} - {{ merchant.location }} - {{ merchant.rating }}
+      </p>
+    </div>
+    <div class="flex mt-auto border-t border-gray-200 divide-x divide-gray-200">
+        <a class="product-buttons view" [routerLink]="['/products', product.slug]">
+            View Details
+          </a>
+          <a class="product-buttons purchase" [href]="product.purchaseLink">
+            Purchase Now
+          </a>
     </div>
   </div>

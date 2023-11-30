@@ -11,8 +11,10 @@ import { MonthlyReportComponent } from './merchant/monthly-report/monthly-report
 import { YearlyReportComponent } from './merchant/yearly-report/yearly-report.component';
 
 import { CustDashboardComponent } from './customer/cust-dashboard/cust-dashboard.component';
+
 import { ProductListComponent } from './customer/product-list/product-list.component';
 import { ProductDetailsComponent } from './customer/product-details/product-details.component';
+
 import { PurchaseProductComponent } from './customer/purchase-product/purchase-product.component';
 import { PurchaseReceiptComponent } from './customer/purchase-receipt/purchase-receipt.component';
 import { TransactionHistoryComponent } from './customer/transaction-history/transaction-history.component';
@@ -49,8 +51,12 @@ const routes: Routes = [
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+
   { path: 'products', component: ProductsComponent },
+  { path: 'products/:slug', component: ProductDetailsComponent },
+  
   { path: 'merchants', component: MerchantsComponent },
+
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contact-us', component: ContactUsComponent },
 ];
