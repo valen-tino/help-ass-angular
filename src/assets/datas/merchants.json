@@ -99,7 +99,7 @@
     "slug": "johor-bahru-exciting-tours",
     "name": "Johor Bahru Exciting Tours",
     "location": "Johor Bahru",
-    "description": "Offering thousands of excitements in the diverse state of Johor Bahru",
+    "description": "Offering thousands of excitements in the diverse state of Johor Bahru.",
     "rating": 4.3,
     "products": [
       {
@@ -148,7 +148,7 @@
     "slug": "penang-enjoyable-tours", 
     "name": "Penang Enjoyable Tours", 
     "location": "Penang", 
-    "description": "Providing enjoyable experiences accross Penang", 
+    "description": "Providing enjoyable experiences across Penang.", 
     "rating": 4.4, 
     "products": [
       {
@@ -176,6 +176,91 @@
         "available": true,
         "price": 14000,
         "purchaseLink": "https://example.com/penang-national-park"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "melaka-fabulous-adventures",
+    "name": "Melaka Fabulous Adventures",
+    "location": "Melaka",
+    "description": "Presenting thousands of fabulous adventures in the diverse state of Melaka.",
+    "rating": 4.5,
+    "products": [
+      {
+        "id": 11,
+        "merchantID": 6000,
+        "slug": "melaka-wonderland",
+        "image": "melaka-wonderland.png",
+        "title": "Melaka Wonderland",
+        "category": "Theme Park",
+        "excerpt": "Enjoy this place, where the spirit of joy meets the cooling embrace of water.",
+        "description": "Explore this vivid water theme park that offers a refuge of excitement, with an extensive selection of exhilarating water attractions against the lush backdrop of tropical landscapes.",
+        "available": true,
+        "price": 18000,
+        "purchaseLink": "https://example.com/melaka-wonderland"
+      },
+      {
+        "id": 12,
+        "merchantID": 6000,
+        "slug": "a-famosa-safari-wonderland",
+        "image": "a-famosa-safari-wonderland.png",
+        "title": "Melaka A'Famosa Safari Wonderland",
+        "category": "Amusement Park",
+        "excerpt": "Set off on a wild journey at Melaka A'Famosa Safari Wonderland, where the wonders of the animal kingdom come to life against the background of Melaka's rich heritage.",
+        "description": "Enjoy this captivating journey into the heart of wild, this thrilling safari provides magnificent creatures in habitats designed to adapt their environments.",
+        "available": true,
+        "price": 17000,
+        "purchaseLink": "https://example.com/a-famosa-safari-wonderland"
+      },
+      {
+        "id": 13,
+        "merchantID": 6000,
+        "slug": "bayou-lagoon-water-park",
+        "image": "bayou-lagoon.png",
+        "title": "Melaka Bayou Lagoon Water Park",
+        "category": "Theme Park",
+        "excerpt": "Explore this wonderland full of aquatic delights where the sun-drenched tropics meet a variety of water exhilaration.",
+        "description": "Immerse yourself in cooling pools, test your endurance on exciting slides, and make memorable experiences with loved ones.",
+        "available": true,
+        "price": 19000,
+        "purchaseLink": "https://example.com/bayou-lagoon-water-park"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "ipoh-lovely-tours",
+    "name": "Ipoh Lovely Tours",
+    "location": "Ipoh",
+    "description": "Providing lovely and unforgettable experiences in the capital of Perak state.",
+    "rating": 4.5,
+    "products": [
+      {
+        "id": 14,
+        "merchantID": 7000,
+        "slug": "",
+        "image": "",
+        "title": "",
+        "category": "",
+        "excerpt": "",
+        "description": "",
+        "available": true,
+        "price": 17000,
+        "purchaseLink": ""
+      },
+      {
+        "id": 15,
+        "merchantID": 7000,
+        "slug": "",
+        "image": "",
+        "title": "",
+        "category": "",
+        "excerpt": "",
+        "description": "",
+        "available": true,
+        "price": 16000,
+        "purchaseLink": ""
       }
     ]
   }
