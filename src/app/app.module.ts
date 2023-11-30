@@ -37,6 +37,8 @@ import { HeroSectionComponent } from './shared_components/hero-section/hero-sect
 
 import { ProductService } from './services/product-service.service';
 import { RegisterMerchantComponent } from './auth/register-merchant/register-merchant.component';
+import { SidebarComponent } from './merchant/shared_components/sidebar/sidebar.component';
+import { LoginRegisterComponent } from './shared_components/navbar/login-register/login-register.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { RegisterMerchantComponent } from './auth/register-merchant/register-mer
     ProductCardComponent,
     HeroSectionComponent,
     RegisterMerchantComponent,
+    SidebarComponent,
+    LoginRegisterComponent,
     ],
   imports: [
     BrowserModule,

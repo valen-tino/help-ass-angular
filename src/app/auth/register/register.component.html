@@ -1,26 +1,6 @@
 <main class="background">
     <div class="h-screen p-2 mx-auto max-w-screen-2xl md:p-6 2xl:p-10">
-      <!-- Breadcrumb Start -->
-      <div class="flex flex-col gap-3 mb-6 sm:flex-row sm:items-center sm:justify-between">
-        <h2 class="font-bold text-white text-title-md md:visible">
-          Register Page
-        </h2>
-
-        <nav>
-          <ol class="flex items-center px-5 py-2.5 text-center bg-white rounded-full whitespace-nowrap w-fit" aria-label="Breadcrumb">
-            <li class="inline-flex items-center">
-              <a href="/" class="flex items-center text-sm text-gray-900 hover:text-blue-600 focus:outline-none focus:text-blue-500">Home</a>
-              <svg class="flex-shrink-0 w-4 h-4 mx-2 overflow-visible text-gray-400 dark:text-neutral-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-            </li>
-            <li class="inline-flex items-center">
-              <a class="inline-flex items-center text-sm font-semibold text-[#fc972e] truncate" href="/login" aria-current="page">Log In</a>
-            </li>
-          </ol>
-          
-        </nav>
-        
-      </div>
-      <!-- Breadcrumb End -->
+    <app-login-register [namePage]="'Register Page'" [link]="'/register'"></app-login-register>
 
       <!-- ====== Forms Section Start -->
       <div class="bg-transparent rounded-md lg:rounded-2xl shadow-default">
