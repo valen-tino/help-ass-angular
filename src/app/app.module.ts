@@ -41,6 +41,7 @@ import { ProductService } from './services/product-service.service';
 import { RegisterMerchantComponent } from './auth/register-merchant/register-merchant.component';
 import { SidebarComponent } from './merchant/shared_components/sidebar/sidebar.component';
 import { LoginRegisterComponent } from './shared_components/navbar/login-register/login-register.component';
+import { FormControlInputComponent } from './shared_components/form-control-input/form-control-input.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { LoginRegisterComponent } from './shared_components/navbar/login-registe
     RegisterMerchantComponent,
     SidebarComponent,
     LoginRegisterComponent,
+    FormControlInputComponent,
     ],
   imports: [
     BrowserModule,

@@ -14,31 +14,30 @@
                   </h2>
         
                   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                    <!-- Email Input -->
-                    <div class="mb-4">
-                      <label class="mb-2.5 block font-medium text-white">Email</label>
-                      <div class="relative">
-                        <input type="email" placeholder="Enter your email"
-                          formControlName="email"
-                          class="w-full py-4 pl-6 pr-10 bg-transparent border rounded-lg outline-none border-stroke focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
-                      </div>
-                    </div>
                   
-                    <!-- Password Input -->
-                    <div class="mb-6">
-                      <label class="mb-2.5 block font-medium text-white">Password</label>
-                      <div class="relative">
-                        <input type="password" placeholder="6+ Characters, 1 Capital letter"
-                          formControlName="password"
-                          class="w-full py-4 pl-6 pr-10 bg-transparent border rounded-lg outline-none border-stroke focus:border-primary focus-visible:shadow-none" />
-                      </div>
-                    </div>
-                  
-                    <!-- Submit Button -->
-                    <div class="mb-5">
-                      <button type="submit" [disabled]="loginForm.invalid"
-                        class="w-full p-4 font-medium text-gray-900 transition border rounded-lg cursor-pointer border-primary bg-[#fc972e] hover:bg-opacity-90">Login Now</button>
-                    </div>
+                      <app-form-control-input label="Email" [type]="'email'" [placeholder]="'Enter your email'" [controlName]="'email'" [currentFormGroup]="loginForm"></app-form-control-input>
+                      <app-form-control-input label="Password" [type]="'password'" [placeholder]="'6+ Characters, 1 Capital letter'" [controlName]="'password'" [currentFormGroup]="loginForm"></app-form-control-input>
+
+                      <ng-container *ngIf="!loginForm.valid; else validForm">
+                        <!-- Display this content if the form is not valid -->
+                        <div class="w-full mb-5">
+                          <button type="submit" [disabled]="loginForm.valid"
+                            class="w-full p-4 font-medium text-gray-300 transition bg-gray-500 border rounded-lg cursor-not-allowed border-primary hover:bg-opacity-90">
+                            Login Now
+                          </button>
+                        </div>
+                      </ng-container>
+                    
+                      <!-- This content will be displayed if the form is valid -->
+                      <ng-template #validForm>
+                        <div class="w-full mb-5">
+                          <button type="submit"
+                            class="w-full p-4 font-medium text-gray-900 transition border rounded-lg cursor-pointer border-primary bg-[#fc972e] hover:bg-opacity-90">
+                            Login Now
+                          </button>
+                        </div>
+                      </ng-template>
+                    
                   
                     <!-- Sign Up Link -->
                     <div class="mt-6 text-center">
