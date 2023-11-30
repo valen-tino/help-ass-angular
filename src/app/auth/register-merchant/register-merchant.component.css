@@ -1,0 +1,7 @@
+.background{
+    background-image: url('../../../assets/images/pexels-jeremy-bishop-2765871.jpg');
+    background-size: 300%;
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-size: cover;
+}

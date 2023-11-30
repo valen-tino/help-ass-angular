@@ -3,7 +3,7 @@
 }
 
 span.category{
-    @apply block mb-1 text-xs font-semibold text-blue-600 uppercase;
+    @apply block mb-1 text-xs font-bold text-[#fc972e] uppercase;
 }
 
 p.excerpt{
@@ -11,7 +11,7 @@ p.excerpt{
 }
 
 p.price{
-    @apply mt-3 text-xl text-blue-600;
+    @apply mt-3 text-xl lg:text-2xl text-[#fc972e] font-bold;
 }
 
 a.product-buttons{
@@ -23,7 +23,7 @@ a.product-buttons.view{
 }
 
 a.product-buttons.purchase{
-    @apply bg-blue-600 text-gray-50 rounded-ee-xl;
+    @apply bg-[#fc972e] text-gray-50 rounded-ee-xl;
 }
 
 

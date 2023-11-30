@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 // import all components inside the admin, auth, customer and merchant modules
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { RegisterMerchantComponent } from './auth/register-merchant/register-merchant.component';
 
 import { MerchantDashboardComponent } from './merchant/merchant-dashboard/merchant-dashboard.component';
 import { ManageProductsComponent } from './merchant/manage-products/manage-products.component';
@@ -33,6 +34,7 @@ import { MerchantsComponent } from './pages/merchants/merchants.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'register/merchant', component: RegisterMerchantComponent },
 
   { path: 'merchant/dashboard', component: MerchantDashboardComponent },
   { path: 'merchant/manage-products', component: ManageProductsComponent },

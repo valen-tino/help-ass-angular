@@ -34,7 +34,9 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ProductCardComponent } from './shared_components/product-card/product-card.component';
 import { HeroSectionComponent } from './shared_components/hero-section/hero-section.component';
+
 import { ProductService } from './services/product-service.service';
+import { RegisterMerchantComponent } from './auth/register-merchant/register-merchant.component';
 
 @NgModule({
   declarations: [
@@ -63,11 +65,12 @@ import { ProductService } from './services/product-service.service';
     ContactUsComponent,
     ProductCardComponent,
     HeroSectionComponent,
+    RegisterMerchantComponent,
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
