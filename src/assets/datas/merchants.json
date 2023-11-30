@@ -94,4 +94,89 @@
       }
     ]
   }
+  {
+    "id": 4,
+    "slug": "johor-bahru-exciting-tours",
+    "name": "Johor Bahru Exciting Tours",
+    "location": "Johor Bahru",
+    "description": "Offering thousands of excitements in the diverse state of Johor Bahru",
+    "rating": 4.3,
+    "products": [
+      {
+        "id": 6,
+        "merchantID": 4000,
+        "slug": "johor-bahru-thrilling-legoland",
+        "image": "legoland-johor-bahru.jpg",
+        "title": "Johor Bahru's Thrilling Legoland",
+        "category": "Theme Park",
+        "excerpt": "Enter a world where Lego bricks transform to create fascinating attractions, such as thrilling rides and interactive zones.",
+        "description": "Enjoy Legoland's immersive experience, starting from attractions, rides, and shows, all themed around the colorful and iconic lego blocks.",
+        "available": true,
+        "price": 12500,
+        "purchaseLink": "https://example.com/johor-bahru-thrilling-legoland"
+      },
+      {
+        "id": 7,
+        "merchantID": 4000,
+        "slug": "johor-bahru-angry-birds-activity-park",
+        "image": "angry-bird-park.png",
+        "title": "Johor Bahru's Angry Birds Activity Park",
+        "category": "Theme Park",
+        "excerpt": "Step into a vibrant world that features the well-known Angry Birds characters, Exhilarating game stations, and immersive experiences that provide an endlessly enjoyable day.",
+        "description": "Join an exhilarating fantasy adventure, featuring Angry Birds character along with exciting playground.",
+        "available": true,
+        "price": 13000,
+        "purchaseLink": "https://example.com/johor-bahru-angry-birds-activity-park"
+      },
+      {
+        "id": 8,
+        "merchantID": 4000,
+        "slug": "johor-zoo",
+        "image": "johor-zoo.png",
+        "title": "Johor Zoo",
+        "category": "Amusement Park",
+        "excerpt": "Discover the enchanting world of Johor Zoo, where nature and wildlife collide to create a mesmerizing experience for all.",
+        "description": "Experience an extraordinary trip at Johor Zoo, a beautiful sanctuary in the heart of Johor Bahru.",
+        "available": true,
+        "price": 11000,
+        "purchaseLink": "https://example.com/johor-zoo"
+      }
+    ]
+  },
+  {
+    "id": 5, 
+    "slug": "penang-enjoyable-tours", 
+    "name": "Penang Enjoyable Tours", 
+    "location": "Penang", 
+    "description": "Providing enjoyable experiences accross Penang", 
+    "rating": 4.4, 
+    "products": [
+      {
+        "id": 9,
+        "merchantID": 5000,
+        "slug": "penang-teddyville-museum",
+        "image": "teddyville.png",
+        "title": "Penang Teddyville Museum",
+        "category": "Museum",
+        "excerpt": "Step into a world of love and wonder at Penang's Teddyville Museum, where teddy bears transform into storytellers, creating tales that captivate hearts of all ages.",
+        "description": "Take an enthralling journey through the fascinating world of Penang's Teddyville Museum. A colorful world awaits, complete with teddy bears who come to life and tell stories of joy and nostalgia.",
+        "available": true,
+        "price": 15000,
+        "purchaseLink": "https://example.com/penang-teddyville-museum"
+      },
+      {
+        "id": 10,
+        "merchantID": 5000,
+        "slug": "penang-national-park",
+        "image": "penang-national-park.png",
+        "title": "Penang National Park",
+        "category": "National Park",
+        "excerpt": "Explore the untamed splendor of Penang National Park, a natural wilderness that spreads along Penang Island's picturesque coastline.",
+        "description": "Enjoy the wonderful nature at Penang National Park, a pure sanctuary where the natural world's beauties unfold before your eyes.",
+        "available": true,
+        "price": 14000,
+        "purchaseLink": "https://example.com/penang-national-park"
+      }
+    ]
+  }
 ]
