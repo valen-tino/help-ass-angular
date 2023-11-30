@@ -1,20 +1,20 @@
-<label class="my-2.5 block font-medium text-white">{{ label }}</label>
-<div class="mb-4">
-  <div class="relative"  *ngIf="type === 'textarea'; else otherThanTextArea" [formGroup]="currentFormGroup">
+<label class="label">{{ label }}</label>
+<div class="input-container">
+  <div class="textarea-container"  *ngIf="type === 'textarea'; else otherThanTextArea" [formGroup]="currentFormGroup">
     <textarea 
         [placeholder]="placeholder" 
         [formControlName]="controlName"
-        class="w-full px-6 py-4 bg-transparent border rounded-lg outline-none border-stroke focus:border-primary focus-visible:shadow-none"
+        class="input-textarea"
       ></textarea> 
   </div>
 </div>
 
   
-<ng-template class="relative" [formGroup]="currentFormGroup" #otherThanTextArea>
+<ng-template class="textarea-container" [formGroup]="currentFormGroup" #otherThanTextArea>
     <input 
       [type]="type" 
       [placeholder]="placeholder" 
       [formControlName]="controlName"
-      class="w-full py-4 pl-6 pr-10 bg-transparent border rounded-lg outline-none border-stroke focus:border-primary focus-visible:shadow-none" 
+      class="input-others" 
     />
   </ng-template>

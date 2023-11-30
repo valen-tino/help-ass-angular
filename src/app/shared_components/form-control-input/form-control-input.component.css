@@ -1,0 +1,36 @@
+@tailwind utilities;
+@tailwind base;
+@tailwind components;
+
+.label{
+    @apply my-2.5 block font-medium text-white;
+}
+
+.input-container {
+    @apply mb-4;
+  }
+  
+.textarea-container {
+    @apply relative;
+  }
+  
+.input-container {
+    @apply relative;
+  }
+
+.input-others, .input-textarea{
+    border-radius: 0.5rem; 
+    border-width: 1px;
+    outline-style: none; 
+    width: 100%; 
+    background-color: transparent; 
+}
+  
+.input-textarea{
+    padding: 1rem 1.5rem 1rem 1.5rem;
+}
+  
+.input-others{
+    padding: 1rem 2.5rem 1rem 1.5rem;
+}
+  

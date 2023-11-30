@@ -5,7 +5,7 @@
     "name": "Kuala Lumpur Explorers",
     "location": "Kuala Lumpur",
     "description": "Offering unforgettable experiences in Malaysia's capital.",
-    "rating": 4.5,
+    "rating": 2,
     "products": [
       {
         "id": 1,
@@ -41,7 +41,7 @@
     "name": "Selangor Odyssey Tours",
     "location": "Selangor",
     "description": "Providing unforgettable experiences in the diverse state of Selangor.",
-    "rating": 4.5,
+    "rating": 3,
     "products": [
       {
         "id": 3,
