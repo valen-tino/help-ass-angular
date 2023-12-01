@@ -31,17 +31,11 @@ export interface Product {
 })
 export class ProductsComponent {
 
-  // Array to store the merchant data
   merchants: Merchant[] = [];
-
-  // Array to store the product data
   featuredProducts: Product[] = [];
-
-  // Unique categories for filtering
   uniqueCategories: string[] = [];
-
-  // Currently selected category for filtering
   selectedCategory: string | null = null;
+  selectedMerchant: Merchant | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -50,12 +44,10 @@ export class ProductsComponent {
   }
 
   loadData() {
-    // Use HttpClient to load data from the JSON file
     this.http.get<Merchant[]>('assets/datas/merchants.json').subscribe(
       (data) => {
         this.merchants = data;
-        // Extract products from all merchants and flatten the array
-        this.featuredProducts = data.flatMap(merchant => merchant.products);
+        this.featuredProducts = data.flatMap((merchant) => merchant.products);
         this.initData();
       },
       (error) => {
@@ -65,38 +57,37 @@ export class ProductsComponent {
   }
 
   initData() {
-    // Initialize unique categories
     this.uniqueCategories = this.getUniqueCategories();
   }
 
   getUniqueCategories(): string[] {
-    // Get unique categories from the product data
-    return Array.from(new Set(this.featuredProducts.map(product => product.category)));
+    return Array.from(new Set(this.featuredProducts.map((product) => product.category)));
   }
 
-  filterProductsByCategory(category: string): void {
-    // Set the selected category for filtering
+  filterProductsByCategoryAndMerchant(category: string): void {
     this.selectedCategory = category;
   }
 
-  clearCategoryFilter(): void {
-    // Clear the selected category to show all products
+  clearCategoryAndMerchantFilter(): void {
     this.selectedCategory = null;
+    this.selectedMerchant = null;
   }
 
   getFilteredProducts(): Product[] {
-    // Filter products based on the selected category
-    if (this.selectedCategory) {
-      return this.featuredProducts.filter(product => product.category === this.selectedCategory);
+    if (this.selectedCategory && this.selectedMerchant) {
+      return this.featuredProducts.filter(
+        (product) => product.category === this.selectedCategory && this.getMerchants(product) === this.selectedMerchant
+      );
+    } else if (this.selectedCategory) {
+      return this.featuredProducts.filter((product) => product.category === this.selectedCategory);
+    } else if (this.selectedMerchant) {
+      return this.featuredProducts.filter((product) => this.getMerchants(product) === this.selectedMerchant);
     }
     return this.featuredProducts;
   }
 
   getMerchants(product: Product): Merchant {
-    // Find the first merchant that contains the specified product
-    const merchant = this.merchants.find(m => m.products.some(p => p.id === product.id));
-  
-    // Use non-null assertion operator (!) to indicate that merchant is not null
+    const merchant = this.merchants.find((m) => m.products.some((p) => p.id === product.id));
     return merchant!;
   }
   

@@ -1,8 +1,45 @@
 <app-merchant></app-merchant>
 <app-hero-section
   [backgroundUrl]="'pexels-zukiman-mohamad-22804.jpg'"
-  [headingText]="'Dashboard'"
-  [subheadingText]="''"
+  [headingText]="'Welcome Back Johor Bahru Exciting Tours!'"
+  [subheadingText]="'You can manage your products here'"
   [buttonText]="'Merchants Dashboard'"
   [buttonUrl]="'#'"
 ></app-hero-section>
+
+<div class="main-content">
+
+  <div class="flex flex-row gap-4">
+    <div class="flex flex-col">
+      <label for="category">Filter by Category:</label>
+      <select id="category" [(ngModel)]="selectedCategory">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
+
+    <div class="flex flex-col">
+        <label for="merchant">Filter by Merchant:</label>
+        <select id="merchant" [(ngModel)]="selectedMerchantName" (ngModelChange)="clearCategoryAndMerchantFilter()">
+          <option value="">All Merchants</option>
+          <option *ngFor="let merchant of merchants" [value]="merchant.name">{{ merchant.name }}</option>
+        </select>
+      </div>
+  </div>
+
+  <!-- Display products from a single merchant -->
+  <div class="grid gap-4" [ngClass]="{
+    'grid-cols-1': getFilteredProducts().length == 1,
+    'md:grid-cols-3 md:grid-rows-3': getFilteredProducts().length > 1,
+  }">
+    <app-product-card
+      *ngFor="let product of getFilteredProducts()"
+      [product]="product"
+      [merchant]="getMerchants(product)"
+    >
+    </app-product-card>
+  </div>
+
+</div>
+  
+  

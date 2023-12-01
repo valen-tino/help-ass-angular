@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,8 +12,6 @@ import { RegisterComponent } from './auth/register/register.component';
 
 import { MerchantDashboardComponent } from './merchant/merchant-dashboard/merchant-dashboard.component';
 import { ManageProductsComponent } from './merchant/manage-products/manage-products.component';
-import { MonthlyReportComponent } from './merchant/monthly-report/monthly-report.component';
-import { YearlyReportComponent } from './merchant/yearly-report/yearly-report.component';
 
 import { CustDashboardComponent } from './customer/cust-dashboard/cust-dashboard.component';
 import { ProductListComponent } from './customer/product-list/product-list.component';
@@ -51,8 +49,6 @@ import { FormControlImageComponent } from './shared_components/form-control-imag
     RegisterComponent,
     MerchantDashboardComponent,
     ManageProductsComponent,
-    MonthlyReportComponent,
-    YearlyReportComponent,
     CustDashboardComponent,
     ProductListComponent,
     ProductDetailsComponent,
@@ -81,7 +77,8 @@ import { FormControlImageComponent } from './shared_components/form-control-imag
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

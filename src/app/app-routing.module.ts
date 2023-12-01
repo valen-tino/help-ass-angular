@@ -8,8 +8,6 @@ import { RegisterMerchantComponent } from './auth/register-merchant/register-mer
 
 import { MerchantDashboardComponent } from './merchant/merchant-dashboard/merchant-dashboard.component';
 import { ManageProductsComponent } from './merchant/manage-products/manage-products.component';
-import { MonthlyReportComponent } from './merchant/monthly-report/monthly-report.component';
-import { YearlyReportComponent } from './merchant/yearly-report/yearly-report.component';
 
 import { CustDashboardComponent } from './customer/cust-dashboard/cust-dashboard.component';
 
@@ -37,8 +35,6 @@ const routes: Routes = [
 
   { path: 'merchant/dashboard', component: MerchantDashboardComponent },
   { path: 'merchant/dashboard/manage-products', component: ManageProductsComponent },
-  { path: 'merchant/dashboard/monthly-report', component: MonthlyReportComponent },
-  { path: 'merchant/dashboard/yearly-report', component: YearlyReportComponent },
 
   { path: 'customer/dashboard', component: CustDashboardComponent },
   { path: 'customer/product-list', component: ProductListComponent },
