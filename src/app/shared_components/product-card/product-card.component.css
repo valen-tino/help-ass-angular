@@ -1,34 +1,69 @@
-.card-container{
-    @apply flex flex-col h-full bg-white border border-[#e4e6ea] shadow-sm rounded-xl;
-}
-
-span.category{
-    @apply block mb-1 text-xs font-bold text-[#fc972e] uppercase;
-}
-
-p.excerpt{
-    @apply mt-3 text-gray-500;
-}
-
-p.price{
-    @apply mt-3 text-xl lg:text-2xl text-[#fc972e] font-bold;
-}
-
-a.product-buttons{
-    @apply inline-flex items-center justify-center w-full px-4 py-3 text-sm font-medium shadow-sm gap-x-2  hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none 
-}
-
-a.product-buttons.view{
-    @apply text-gray-800 bg-white rounded-es-xl;
-}
-
-a.product-buttons.purchase{
-    @apply bg-[#fc972e] text-gray-50 rounded-ee-xl;
-}
-
-
-
-
-
-
+.card-container {
+    @apply bg-white divide-y divide-gray-200 shadow-lg rounded-t-xl;
+  }
+  
+  .image-container {
+    @apply flex items-center justify-center bg-blue-600 h-52 rounded-t-xl;
+  }
+  
+  .image {
+    @apply object-cover object-center w-full h-full bg-cover rounded-tr-xl rounded-t-xl;
+  }
+  
+  .content-container {
+    @apply p-4 md:p-6;
+  }
+  
+  .category {
+    @apply px-4 py-1.5 text-gray-700 rounded-full bg-[#fc972e];
+  }
+  
+  .title {
+    @apply my-2 text-xl font-semibold text-gray-800;
+  }
+  
+  .excerpt {
+    @apply text-gray-800;
+  }
+  
+  .price {
+    @apply text-[#fc972e] text-2xl font-bold;
+  }
+  
+  .merchant-info {
+    @apply flex flex-row p-4 md:p-6;
+  }
+  
+  .merchant-image {
+    @apply h-[2.375rem] w-[2.375rem] rounded-full;
+  }
+  
+  .merchant-details {
+    @apply ms-3;
+  }
+  
+  .merchant-name {
+    @apply font-semibold text-[#fc972e];
+  }
+  
+  .merchant-location {
+    @apply font-normal text-[#1a5a64] text-sm;
+  }
+  
+  .actions {
+    @apply flex w-full mt-auto border-t border-gray-200 divide-x divide-gray-200;
+  }
+  
+  .view-button, .purchase-button {
+    @apply px-4 py-2.5 font-medium transition cursor-pointer;
+  }
+  
+  .view-button {
+    @apply w-1/2 text-center text-white bg-blue-500 rounded-bl-2xl hover:bg-blue-600;
+  }
+  
+  .purchase-button {
+    @apply bg-[#fc972e] hover:bg-[#fc972e] text-gray-900 w-1/2 rounded-br-2xl text-center;
+  }
+  
 

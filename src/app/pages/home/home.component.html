@@ -2,67 +2,82 @@
 <body>
 
 <!-- Hero -->
-<div class="relative 
-    overflow-hidden 
-    before:absolute 
-    before:top-0 
-    before:start-1/2 
-    before:bg-[url('https://worldtourismforum.net/wp-content/uploads/2020/10/malaysia.jpg')] 
-    before:bg-no-repeat 
-    before:bg-top 
-    before:bg-cover 
-    before:w-full 
-    before:h-full 
-    before:-z-[1] 
-    before:transform 
-    before:-translate-x-1/2
-    bg-gray-700
-    bg-opacity-50">
-    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24">
-    
-      <!-- Title -->
-      <div class="max-w-2xl mx-auto mt-5 text-center">
-        <h1 class="block text-4xl font-bold text-gray-800 md:text-5xl lg:text-6xl dark:text-gray-200">
-          Discover Amazing Deals in Malaysia with
-            <span class="font-bold text-[#fc972e] bg-clip-text">Promo</span>
-            <span class="font-bold text-[#1a5a64] bg-clip-text ">Tourism</span>
-        </h1>
-      </div>
-      <!-- End Title -->
+<div class="hero-container">
+  <div class="hero-content">
   
-      <div class="max-w-3xl mx-auto mt-5 text-center">
-        <p class="text-lg text-white dark:text-white">Explore our curated selection of tourism products at unbeatable prices.</p>
-      </div>
-  
-      
+    <!-- Title -->
+    <div class="hero-title">
+      <h1>
+        Discover Amazing Deals in Malaysia with
+        <span class="font-bold text-[#fc972e] bg-clip-text">Promo</span>
+        <span class="font-bold text-[#1a5a64] bg-clip-text">Tourism</span>
+      </h1>
     </div>
+    <!-- End Title -->
+
+    <div class="hero-subtitle">
+      <p>Explore our curated selection of tourism products at unbeatable prices.</p>
+    </div>
+
+  </div>
 </div>
 <!-- End Hero -->
 
 <!-- Card Blog -->
-<div id="our-products" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+<div id="our-products" class="card-blog">
+  <h2 class="block py-5 text-heading">  
+    <span class="text-highlight-bg">Our </span>
+    <span class="text-accent-bg">Products</span>
+  </h2>
 
-    <h2 class="block py-5 text-4xl font-bold text-gray-800 md:text-5xl lg:text-6xl dark:text-gray-200">  
-        <span class="font-bold text-[#fc972e] bg-clip-text">Our </span>
-        <span class="font-bold text-[#1a5a64] bg-clip-text ">Products</span>
-      </h2>
+  <!-- Product Tabs -->
+  <div class="product-tabs">
+    <button *ngFor="let category of uniqueCategories" (click)="filterProductsByCategory(category)" class="tab-button">
+      {{ category }}
+    </button>
+  </div><br/>
 
-    <!-- Product Tabs -->
-    <div class="flex space-x-4">
-        <button *ngFor="let category of uniqueCategories" (click)="filterProductsByCategory(category)" class="px-4 py-2 bg-[#fc972e] text-gray-700 hover:text-gray-900 hover:bg-[#ffae56] transition delay-100 duration-100 ease-in-out border rounded-md focus:outline-none focus:ring focus:border-blue-300 font-normal hover:font-semibold">
-        {{ category }}
-        </button>
-    </div><br/>
-    
-    <!-- Grid -->
-    <div class="grid gap-4" [ngClass]="{
-        'md:grid-cols-2': getFilteredProducts().length > 2,
-        'lg:grid-cols-3': getFilteredProducts().length > 3
-      }">
-        <!-- Card Loop -->
-        <app-product-card *ngFor="let product of getFilteredProducts()" [product]="product" [merchant]="getMerchants(product)"></app-product-card>
-        <!-- End Card -->
-      </div>
-    <!-- End Grid -->
+  <!-- Grid -->
+  <div class="grid gap-4" [ngClass]="{
+    'grid-cols-1': getFilteredProducts().length == 1,
+    'md:grid-cols-3 md:grid-rows-3': getFilteredProducts().length > 1,
+  }">
+    <!-- Card Loop -->
+    <app-product-card 
+
+      [ngClass]="{
+        'md:w-2/6': getFilteredProducts().length == 1,
+        'w-full': getFilteredProducts().length == 2,
+        'w-auto': getFilteredProducts().length > 2,
+      }" 
+
+      *ngFor="let product of getFilteredProducts()" 
+      [product]="product" 
+      [merchant]="getMerchants(product)">
+    </app-product-card>
+    <!-- End Card -->
   </div>
-  <!-- End Card Blog -->
+  <!-- End Grid -->
+ <br/>
+  <!-- component -->
+  <div class="bg-[#fc972e] rounded-2xl">
+    <div class="lg:grid lg:grid-cols-2">
+        <div class="max-w-3xl px-10 py-24 mx-auto lg:px-0 lg:max-w-md">
+            <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">
+                <span class="block">Ready to dive in?</span>
+                <span class="block">Start your free trial today.</span>
+            </h2>
+            <p class="mt-5 text-gray-900">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+            <div class="inline-block mt-5 shadow">
+                <a href="#" class="inline-block px-4 py-3 font-medium text-[#fc972e] bg-white border border-transparent rounded-md hover:bg-[#fc972e]">Sign up for free</a>
+            </div>
+        </div>
+        <div class="lg:relative lg:mt-16">
+            <img class="object-cover object-center w-full lg:absolute lg:inset-0 h-60 lg:h-full lg:rounded-tl-md" src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="Woman workcation on the beach">
+        </div>
+    </div>
+  </div>
+</div>
+<!-- End Card Blog -->

@@ -1,0 +1,8 @@
+<label class="label">{{ label }}</label>
+<div class="input-container">
+  <div class="image-container" [formGroup]="currentFormGroup">
+    <input type="file" (change)="onFileChange($event)" accept="assets/merchant/files/*" class="input-file" />
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="Preview" class="image-preview" />
+  </div>
+</div>
+

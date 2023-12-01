@@ -17,9 +17,29 @@ export class LoginComponent {
   }
 
   onSubmit() {
+
+    // Perform login logic here
     if (this.loginForm.valid) {
-      // Perform login logic here
-      alert('Login successful!');
+
+      if(this.loginForm.value.email == 'customer123@gmail.com' && this.loginForm.value.password == 'newCust123'){
+        alert('Welcome back Customer!');
+        window.location.href = '/user/dashboard';
+      }
+
+      else if(this.loginForm.value.email == 'merchant123@gmail.com' && this.loginForm.value.password == 'newMer123'){
+        alert('Welcome back Merchant!');
+        window.location.href = '/merchant/dashboard';
+      }
+
+      else if(this.loginForm.value.email == 'admin_ministry@admin.com' && this.loginForm.value.password == 'ministry123'){
+        alert('Welcome back Ministry');
+        window.location.href = '/admin/merchant-approval';
+      }
+
+      else{
+        alert('Invalid Credentials! Please make sure that your data is correct.');
+      }
+ 
     } else {
       alert('Please fill in all required fields with valid data.');
     }

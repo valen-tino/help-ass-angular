@@ -1,35 +1,38 @@
 <div *ngIf="product.available" class="card-container">
-    <div class="flex flex-col items-center justify-center bg-blue-600 h-52 rounded-t-xl">
-      <img [src]="'../../../assets/images/' + product.image" [alt]="product.title" class="w-full h-full bg-cover rounded-tr-xl rounded-t-xl">
-    </div>
-    <div class="p-4 md:p-6">
-      <span class="category">
-        {{ product.category }}
-      </span>
-      <h3 class="text-xl font-semibold text-gray-800">
-        {{ product.title }}
-      </h3>
-      <p class="excerpt">
-        {{ product.excerpt }}
+  <div class="image-container">
+    <img [src]="'../../../assets/images/' + product.image" [alt]="product.title" class="image">
+  </div>
+  <div class="content-container">
+    <span class="category"><strong>
+      {{ product.category }}</strong>
+    </span>
+    <h3 class="title">
+      {{ product.title }}
+    </h3>
+    <p class="excerpt">
+      {{ product.excerpt }}
+    </p>
+    <p class="price">
+      {{ product.price }} RM
+    </p>
+  </div>
+  <div class="merchant-info">
+    <img class="merchant-image" [src]="'assets/images/' + merchant.products[0].image" alt="{{ merchant.name }} Image">
+    <div class="merchant-details">
+      <p class="merchant-name"><strong>
+        {{ merchant.name }}</strong>
       </p>
-      <p class="price">
-        {{ product.price }} RM
+      <p class="merchant-location">
+        {{ merchant.location }} - {{ merchant.rating }} Stars
       </p>
-    </div>
-    <div class="flex flex-row p-4 md:p-6">
-      <img class="h-[2.375rem] w-[2.375rem] rounded-full" [src]="'assets/images/' + merchant.products[0].image" alt="{{ merchant.name }} Image">
-      <div class="ms-3">
-        <p class="font-semibold text-[#fc972e]">{{ merchant.name }}</p>
-        <p class="font-normal text-[#1a5a64] text-sm">{{ merchant.location }} - {{ merchant.rating }} Stars</p>
-      </div>
-    </div>
-
-    <div class="flex mt-auto border-t border-gray-200 divide-x divide-gray-200">
-        <a class="product-buttons view" [routerLink]="['/products', product.slug]">
-            View Details
-          </a>
-          <a class="product-buttons purchase" [href]="product.purchaseLink">
-            Purchase Now
-          </a>
     </div>
   </div>
+  <div class="actions">
+    <a class="view-button" [routerLink]="['/products', product.slug]">
+      View Details
+    </a>
+    <a class="purchase-button" [href]="product.purchaseLink">
+      Purchase Now
+    </a>
+  </div>
+</div>

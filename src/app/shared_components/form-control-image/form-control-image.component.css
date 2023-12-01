@@ -1,0 +1,36 @@
+.label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .input-container {
+    position: relative;
+  }
+  
+  .image-container,
+  .textarea-container {
+    margin-bottom: 1rem;
+  }
+  
+  .input-file {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+  }
+  
+  .image-preview {
+    height: 300px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  
+  .input-others {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  }
+  

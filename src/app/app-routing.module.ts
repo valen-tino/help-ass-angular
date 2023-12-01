@@ -20,7 +20,6 @@ import { PurchaseProductComponent } from './customer/purchase-product/purchase-p
 import { PurchaseReceiptComponent } from './customer/purchase-receipt/purchase-receipt.component';
 import { TransactionHistoryComponent } from './customer/transaction-history/transaction-history.component';
 
-import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { MerchantApprovalComponent } from './admin/merchant-approval/merchant-approval.component';
 
 import {HomeComponent} from './pages/home/home.component';
@@ -37,9 +36,9 @@ const routes: Routes = [
   { path: 'register/merchant', component: RegisterMerchantComponent },
 
   { path: 'merchant/dashboard', component: MerchantDashboardComponent },
-  { path: 'merchant/manage-products', component: ManageProductsComponent },
-  { path: 'merchant/monthly-report', component: MonthlyReportComponent },
-  { path: 'merchant/yearly-report', component: YearlyReportComponent },
+  { path: 'merchant/dashboard/manage-products', component: ManageProductsComponent },
+  { path: 'merchant/dashboard/monthly-report', component: MonthlyReportComponent },
+  { path: 'merchant/dashboard/yearly-report', component: YearlyReportComponent },
 
   { path: 'customer/dashboard', component: CustDashboardComponent },
   { path: 'customer/product-list', component: ProductListComponent },
@@ -48,7 +47,6 @@ const routes: Routes = [
   { path: 'customer/purchase-receipt', component: PurchaseReceiptComponent },
   { path: 'customer/transaction-history', component: TransactionHistoryComponent },
 
-  { path: 'admin/dashboard', component: AdminDashboardComponent },
   { path: 'admin/merchant-approval', component: MerchantApprovalComponent },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -56,9 +54,10 @@ const routes: Routes = [
 
   { path: 'products', component: ProductsComponent },
   { path: 'products/:slug', component: ProductDetailsComponent },
+
+  { path: 'user/dashboard', component: CustDashboardComponent},
   
   { path: 'merchants', component: MerchantsComponent },
-
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contact-us', component: ContactUsComponent },
 ];

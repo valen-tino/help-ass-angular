@@ -1,0 +1,45 @@
+/* Add this CSS to your styles.css file */
+.breadcrumb-container {
+    @apply relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-no-repeat before:bg-center before:bg-cover before:w-full before:h-full before:-z-[1] before:transform before:-translate-x-1/2 bg-gray-700 bg-opacity-50;
+  }
+  
+  .breadcrumb-container:before {
+    @apply bg-no-repeat bg-center bg-cover w-full h-full -z-[1] -translate-x-1/2;
+  }
+  
+  .breadcrumb-content {
+    @apply max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24;
+  }
+  
+  .breadcrumb-title {
+    @apply block max-w-2xl mx-auto mb-5 text-4xl font-bold text-center text-gray-800 md:text-5xl lg:text-6xl dark:text-gray-200;
+  }
+  
+  .breadcrumb-subtitle {
+    @apply max-w-3xl mx-auto mb-5 text-lg text-center text-white;
+  }
+  
+  .breadcrumb-list {
+    @apply self-center max-w-3xl mx-auto w-fit;
+  }
+  
+  .breadcrumb-ol {
+    @apply flex items-center px-5 py-2.5 mb-5 text-center bg-white rounded-full whitespace-nowrap;
+  }
+  
+  .breadcrumb-li {
+    @apply inline-flex items-center;
+  }
+  
+  .breadcrumb-link {
+    @apply flex items-center text-sm text-gray-900 hover:text-blue-600 focus:outline-none focus:text-blue-500;
+  }
+  
+  .breadcrumb-separator {
+    @apply flex-shrink-0 w-4 h-4 mx-2 overflow-visible text-gray-400 dark:text-neutral-600;
+  }
+  
+  .breadcrumb-current {
+    @apply inline-flex items-center text-sm font-semibold text-[#fc972e] truncate;
+  }
+  

@@ -21,6 +21,8 @@ export class RegisterComponent {
   onSubmit() {
     if (this.registerForm.valid) {
       alert('Registration successful!');
+      alert('Thanks for registering! ' + this.registerForm.get('name')!.value);
+      window.location.href = '/user/dashboard';
       // Add logic for actual registration here
     } else {
       alert('Please fill in all required fields with valid data.');

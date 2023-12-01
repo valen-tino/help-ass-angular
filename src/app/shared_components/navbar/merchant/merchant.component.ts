@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./merchant.component.css']
 })
 export class MerchantComponent {
-
+  showMenu = false;
+  toggleNavbar(){
+    this.showMenu = !this.showMenu;
+  }
 }

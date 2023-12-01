@@ -1,0 +1,27 @@
+.main-container{
+    @apply flex flex-col gap-3 mb-6 sm:flex-row sm:items-center sm:justify-between
+}
+
+.label{
+    @apply font-bold text-white md:visible
+}
+
+.breadcrumb-container{
+    @apply flex items-center px-5 py-2.5 text-center bg-white rounded-full whitespace-nowrap w-fit shadow-xl
+}
+
+li{
+    @apply inline-flex items-center
+}
+
+.arrow{
+    @apply flex-shrink-0 w-4 h-4 mx-2 overflow-visible text-gray-600 
+}
+
+.currentLink{
+    @apply inline-flex items-center text-sm font-semibold text-[#fc972e] truncate
+}
+
+.homeLink{
+    @apply flex items-center text-sm text-gray-900 hover:text-[#fc972e] focus:outline-none focus:text-[#fc972e]
+}
