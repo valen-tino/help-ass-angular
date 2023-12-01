@@ -42,6 +42,8 @@ import { FormControlInputComponent } from './shared_components/form-control-inpu
 import { CustomerComponent } from './shared_components/navbar/customer/customer.component';
 import { FormControlImageComponent } from './shared_components/form-control-image/form-control-image.component';
 
+import { ProductCardMerchantComponent } from './shared_components/product-card-merchant/product-card-merchant.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +73,8 @@ import { FormControlImageComponent } from './shared_components/form-control-imag
     LoginRegisterComponent,
     FormControlInputComponent,
     CustomerComponent,
-    FormControlImageComponent
+    FormControlImageComponent,
+    ProductCardMerchantComponent
     ],
   imports: [
     BrowserModule,

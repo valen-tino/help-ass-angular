@@ -24,7 +24,7 @@
       <label for="merchant" class="mb-1">Filter by Merchant:</label>
       <select id="merchant" [(ngModel)]="selectedMerchant" (ngModelChange)="clearCategoryAndMerchantFilter()" class="p-2 border rounded">
         <option value="">All Merchants</option>
-        <option *ngFor="let merchant of merchants" [value]="merchant">{{ merchant.name }}</option>
+        <option *ngFor="let merchant of merchant" [value]="merchant">{{ merchant.name }}</option>
       </select>
     </div>
   </div>
@@ -35,16 +35,14 @@
     'md:grid-cols-3 md:grid-rows-3': getFilteredProducts().length > 1,
   }">
     <app-product-card
-    
-      [ngClass]="{
-        'md:w-2/6': getFilteredProducts().length == 1,
-        'w-full': getFilteredProducts().length == 2,
-        'w-auto': getFilteredProducts().length > 2,
-      }"
-    
-      *ngFor="let product of getFilteredProducts()"
-      [product]="product"
-      [merchant]="getMerchants(product)"
+    *ngFor="let product of getFilteredProducts();"
+    [ngClass]="{
+      'md:w-2/6': filteredProductsLength === 1,
+      'w-full': filteredProductsLength === 2,
+      'w-auto': filteredProductsLength > 2,
+    }"
+    [product]="product"
+    [merchant]="getMerchants(product)"
     >
     </app-product-card>
   </div>

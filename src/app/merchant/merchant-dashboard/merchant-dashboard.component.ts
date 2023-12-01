@@ -1,27 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-
-export interface Merchant {
-  id: number;
-  name: string;
-  location: string;
-  description: string;
-  rating: number;
-  products: Product[];
-}
-
-export interface Product {
-slug: any;
-  id: number;
-  image: string;
-  title: string;
-  category: string;
-  excerpt: string;
-  description: string;
-  available: boolean;
-  price: number; // Added 'price' field
-  purchaseLink: string;
-}
+import { ProductService, Merchant, Product } from '../../services/product-service.service';
 
 @Component({
   selector: 'app-merchant-dashboard',
@@ -29,35 +7,33 @@ slug: any;
   styleUrls: ['./merchant-dashboard.component.css']
 })
 export class MerchantDashboardComponent {
-  merchants: Merchant[] = [];
+  merchant: Merchant[] = [];
   featuredProducts: Product[] = [];
   uniqueCategories: string[] = [];
   selectedCategory: string | null = null;
   selectedMerchantName: string | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private ProductService: ProductService) {}
 
   ngOnInit() {
     this.loadData();
   }
 
   loadData() {
-    this.http.get<Merchant[]>('assets/datas/merchants.json').subscribe(
-      (data) => {
-        this.merchants = data;
-        this.featuredProducts = data.flatMap((merchant) => merchant.products);
+    this.ProductService.getMerchantsData().subscribe(
+      (data: any[]) => {
+        this.merchant = data;
+        this.featuredProducts = data.flatMap(Merchant => Merchant.products);
         this.initData();
       },
-      (error) => {
-        console.error('Error loading merchant data:', error);
+      (error: any) => {
+        console.error('Error loading Merchant data:', error);
       }
     );
   }
 
-  merchantName = 'Johor Bahru Exciting Tours';
-
   getMerchantByName(merchantName: string): Merchant | null {
-    return this.merchants.find((merchant) => merchant.name === merchantName) || null;
+    return this.merchant.find((merchant) => merchant.name === merchantName) || null;
   }
 
   initData() {
@@ -95,7 +71,7 @@ export class MerchantDashboardComponent {
   }
 
   getMerchants(product: Product): Merchant {
-    const merchant = this.merchants.find((m) => m.products.some((p) => p.id === product.id));
+    const merchant = this.merchant.find((m) => m.products.some((p) => p.id === product.id));
     return merchant!;
   }
 }

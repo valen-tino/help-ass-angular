@@ -1,94 +1,67 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-export interface Merchant {
-  id: number;
-  name: string;
-  location: string;
-  description: string;
-  rating: number;
-  products: Product[];
-}
-
-export interface Product {
-  slug: any;
-  id: number;
-  merchantId: number;
-  image: string;
-  title: string;
-  category: string;
-  excerpt: string;
-  description: string;
-  available: boolean;
-  price: number; // Added 'price' field
-  purchaseLink: string;
-}
+import { Component, OnInit } from '@angular/core';
+import { ProductService, Merchant, Product } from '../../services/product-service.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent {
-
-  merchants: Merchant[] = [];
+export class ProductsComponent implements OnInit {
+  merchant: Merchant[] = [];
   featuredProducts: Product[] = [];
   uniqueCategories: string[] = [];
   selectedCategory: string | null = null;
   selectedMerchant: Merchant | null = null;
 
-  constructor(private http: HttpClient) {}
+  filteredProductsLength: number = 0;
+
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
     this.loadData();
   }
 
   loadData() {
-    this.http.get<Merchant[]>('assets/datas/merchants.json').subscribe(
-      (data) => {
-        this.merchants = data;
-        this.featuredProducts = data.flatMap((merchant) => merchant.products);
+    this.productService.getMerchantsData().subscribe(
+      (data: Merchant[]) => {
+        this.merchant = data;
+        this.featuredProducts = data.flatMap(merchant => merchant.products);
         this.initData();
       },
-      (error) => {
-        console.error('Error loading merchant data:', error);
+      (error: any) => {
+        console.error('Error loading Merchant data:', error);
       }
     );
   }
 
   initData() {
-    this.uniqueCategories = this.getUniqueCategories();
-  }
-
-  getUniqueCategories(): string[] {
-    return Array.from(new Set(this.featuredProducts.map((product) => product.category)));
+    this.uniqueCategories = Array.from(new Set(this.featuredProducts.map(product => product.category)));
   }
 
   filterProductsByCategoryAndMerchant(category: string): void {
     this.selectedCategory = category;
+    // Clear selectedMerchant when filtering by category
+    this.selectedMerchant = null;
   }
 
   clearCategoryAndMerchantFilter(): void {
     this.selectedCategory = null;
     this.selectedMerchant = null;
   }
-
+  
   getFilteredProducts(): Product[] {
-    if (this.selectedCategory && this.selectedMerchant) {
-      return this.featuredProducts.filter(
-        (product) => product.category === this.selectedCategory && this.getMerchants(product) === this.selectedMerchant
-      );
-    } else if (this.selectedCategory) {
-      return this.featuredProducts.filter((product) => product.category === this.selectedCategory);
-    } else if (this.selectedMerchant) {
-      return this.featuredProducts.filter((product) => this.getMerchants(product) === this.selectedMerchant);
-    }
-    return this.featuredProducts;
+    const filteredProducts = this.featuredProducts.filter(product =>
+      (!this.selectedCategory || product.category === this.selectedCategory) &&
+      (!this.selectedMerchant || this.getMerchants(product) === this.selectedMerchant)
+    );
+    this.filteredProductsLength = filteredProducts.length;
+    return filteredProducts;
   }
 
-  getMerchants(product: Product): Merchant {
-    const merchant = this.merchants.find((m) => m.products.some((p) => p.id === product.id));
+  getMerchants(product: Product): Merchant{
+    const merchant = this.merchant.find(merchant => merchant.products.some(p => p.id === product.id));
     return merchant!;
   }
   
 }
+

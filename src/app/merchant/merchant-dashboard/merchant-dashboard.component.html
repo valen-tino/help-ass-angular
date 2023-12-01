@@ -22,7 +22,7 @@
         <label for="merchant">Filter by Merchant:</label>
         <select id="merchant" [(ngModel)]="selectedMerchantName" (ngModelChange)="clearCategoryAndMerchantFilter()">
           <option value="">All Merchants</option>
-          <option *ngFor="let merchant of merchants" [value]="merchant.name">{{ merchant.name }}</option>
+          <option *ngFor="let merchant of merchant" [value]="merchant.name">{{ merchant.name }}</option>
         </select>
       </div>
   </div>
@@ -32,12 +32,12 @@
     'grid-cols-1': getFilteredProducts().length == 1,
     'md:grid-cols-3 md:grid-rows-3': getFilteredProducts().length > 1,
   }">
-    <app-product-card
+    <app-product-card-merchant
       *ngFor="let product of getFilteredProducts()"
       [product]="product"
       [merchant]="getMerchants(product)"
     >
-    </app-product-card>
+    </app-product-card-merchant>
   </div>
 
 </div>

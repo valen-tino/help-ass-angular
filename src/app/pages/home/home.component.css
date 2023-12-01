@@ -55,5 +55,5 @@
 
   .grid-container{
     display: grid;
-    gap: 8px;
+    grid-gap: 1rem 3rem;    
   }

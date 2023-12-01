@@ -52,8 +52,7 @@
       }" 
 
       *ngFor="let product of getFilteredProducts()" 
-      [product]="product" 
-      [merchant]="getMerchants(product)">
+      [product]="product" [merchant]="getMerchants(product)">
     </app-product-card>
     <!-- End Card -->
   </div>

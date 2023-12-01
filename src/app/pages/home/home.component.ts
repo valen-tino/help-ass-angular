@@ -1,27 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-export interface Merchant {
-  id: number;
-  name: string;
-  location: string;
-  description: string;
-  rating: number;
-  products: Product[];
-}
-
-export interface Product {
-slug: any;
-  id: number;
-  image: string;
-  title: string;
-  category: string;
-  excerpt: string;
-  description: string;
-  available: boolean;
-  price: number; // Added 'price' field
-  purchaseLink: string;
-}
+import { ProductService, Merchant, Product } from '../../services/product-service.service';
 
 @Component({
   selector: 'app-home',
@@ -30,72 +8,48 @@ slug: any;
 })
 export class HomeComponent implements OnInit {
 
-  // Array to store the merchant data
-  merchants: Merchant[] = [];
-
-  // Array to store the product data
+  merchant: Merchant[] = [];
   featuredProducts: Product[] = [];
-
-  // Unique categories for filtering
   uniqueCategories: string[] = [];
-
-  // Currently selected category for filtering
   selectedCategory: string | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private ProductService: ProductService) {}
 
   ngOnInit() {
     this.loadData();
   }
 
   loadData() {
-    // Use HttpClient to load data from the JSON file
-    this.http.get<Merchant[]>('assets/datas/merchants.json').subscribe(
-      (data) => {
-        this.merchants = data;
-        // Extract products from all merchants and flatten the array
-        this.featuredProducts = data.flatMap(merchant => merchant.products);
+    this.ProductService.getMerchantsData().subscribe(
+      (data: any[]) => {
+        this.merchant = data;
+        this.featuredProducts = data.flatMap(Merchant => Merchant.products);
         this.initData();
       },
-      (error) => {
-        console.error('Error loading merchant data:', error);
+      (error: any) => {
+        console.error('Error loading Merchant data:', error);
       }
     );
   }
 
   initData() {
-    // Initialize unique categories
-    this.uniqueCategories = this.getUniqueCategories();
-  }
-
-  getUniqueCategories(): string[] {
-    // Get unique categories from the product data
-    return Array.from(new Set(this.featuredProducts.map(product => product.category)));
+    this.uniqueCategories = this.ProductService.getUniqueCategories(this.merchant);
   }
 
   filterProductsByCategory(category: string): void {
-    // Set the selected category for filtering
     this.selectedCategory = category;
   }
 
   clearCategoryFilter(): void {
-    // Clear the selected category to show all products
     this.selectedCategory = null;
   }
 
   getFilteredProducts(): Product[] {
-    // Filter products based on the selected category
-    if (this.selectedCategory) {
-      return this.featuredProducts.filter(product => product.category === this.selectedCategory);
-    }
-    return this.featuredProducts;
+    return this.ProductService.getFilteredProducts(this.featuredProducts, this.selectedCategory);
   }
 
-  getMerchants(product: Product): Merchant {
-    // Find the first merchant that contains the specified product
-    const merchant = this.merchants.find(m => m.products.some(p => p.id === product.id));
-  
-    // Use non-null assertion operator (!) to indicate that merchant is not null
+  getMerchants(product: Product): Merchant{
+    const merchant = this.merchant.find(merchant => merchant.products.some(p => p.id === product.id));
     return merchant!;
   }
   
