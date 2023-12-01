@@ -21,7 +21,17 @@ export class RegisterMerchantComponent {
   onSubmit() {
     if (this.merchantForm.valid) {
       // Perform registration logic here
-      alert('Merchant registration successful!');
+
+      if(this.merchantForm.value.name == 'John Doe' && this.merchantForm.value.email == 'merchant123@gmail.com'){
+        alert('Congratuations! Your account has been approved!\nYou will be redirected shortly to the merchant dashboard for further instructions.');
+        window.location.href = '/merchant/dashboard';
+      }
+
+      else{
+        alert('Thank you for registering!\nWe will inform you in your email for your account verification\nonce is already approved by the Ministry of Tourism in about 3-4 Days.');
+        window.location.href = '/';
+      }
+      
     } else {
       alert('Please fill in all required fields with valid data.');
     }

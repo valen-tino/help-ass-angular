@@ -22,7 +22,6 @@ import { PurchaseProductComponent } from './customer/purchase-product/purchase-p
 import { PurchaseReceiptComponent } from './customer/purchase-receipt/purchase-receipt.component';
 import { TransactionHistoryComponent } from './customer/transaction-history/transaction-history.component';
 
-import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { MerchantApprovalComponent } from './admin/merchant-approval/merchant-approval.component';
 
 import { MainComponent } from './shared_components/navbar/main/main.component';
@@ -40,8 +39,10 @@ import { HeroSectionComponent } from './shared_components/hero-section/hero-sect
 import { ProductService } from './services/product-service.service';
 import { RegisterMerchantComponent } from './auth/register-merchant/register-merchant.component';
 import { SidebarComponent } from './merchant/shared_components/sidebar/sidebar.component';
-import { LoginRegisterComponent } from './shared_components/navbar/login-register/login-register.component';
+import { LoginRegisterComponent } from './shared_components/navbar/hero-breadcrumbs/login-register.component';
 import { FormControlInputComponent } from './shared_components/form-control-input/form-control-input.component';
+import { CustomerComponent } from './shared_components/navbar/customer/customer.component';
+import { FormControlImageComponent } from './shared_components/form-control-image/form-control-image.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,6 @@ import { FormControlInputComponent } from './shared_components/form-control-inpu
     PurchaseProductComponent,
     PurchaseReceiptComponent,
     TransactionHistoryComponent,
-    AdminDashboardComponent,
     MerchantApprovalComponent,
     MainComponent,
     AdminComponent,
@@ -74,6 +74,8 @@ import { FormControlInputComponent } from './shared_components/form-control-inpu
     SidebarComponent,
     LoginRegisterComponent,
     FormControlInputComponent,
+    CustomerComponent,
+    FormControlImageComponent
     ],
   imports: [
     BrowserModule,

@@ -1,10 +1,10 @@
-<main class="background">
-    <div class="h-screen p-2 mx-auto max-w-screen-2xl md:p-6 2xl:p-10">
+<main class="h-full p-2 mx-auto background max-w-screen-2xl md:p-6 2xl:p-10">
         <app-login-register [namePage]="'Register as Merchant Page'" [link]="'/register/merchant'"></app-login-register>
 
       <!-- ====== Forms Section Start -->
       <div class="bg-transparent rounded-md lg:rounded-2xl shadow-default">
         <div class="flex flex-wrap items-center">
+          
 
           <div class="w-full xl:w-1/2 bg-[#1a5a64] rounded-md lg:rounded-2xl">
             <div class="w-full p-4 sm:p-12.5 xl:p-17.5">
@@ -21,7 +21,8 @@
                 <app-form-control-input label="Contact Number" [type]="'tel'" [placeholder]="'Enter your Contact Number'" [controlName]="'contactNumber'" [currentFormGroup]="merchantForm"></app-form-control-input>
                 <app-form-control-input label="Email" [type]="'email'" [placeholder]="'Enter your email'" [controlName]="'email'" [currentFormGroup]="merchantForm"></app-form-control-input>
                 <app-form-control-input label="Your Company Brief Description" [type]="'textarea'" [placeholder]="'Enter your Company Description'" [controlName]="'companyDescription'" [currentFormGroup]="merchantForm"></app-form-control-input>
-              
+                <app-form-control-image label="Proof Of Evidence Of Registration" [type]="'file'" [controlName]="'file'" [currentFormGroup]="merchantForm"></app-form-control-image>
+                
                 <br />
               
                 <!-- Submit Button -->
@@ -62,6 +63,5 @@
         </div>
       </div>
       <!-- ====== Forms Section End -->
-      
-    </div>
+    
 </main>

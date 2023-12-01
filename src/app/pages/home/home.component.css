@@ -44,11 +44,6 @@
     @apply px-4 py-2 bg-[#fc972e] text-gray-700 hover:text-gray-900 hover:bg-[#ffae56] transition delay-100 duration-100 ease-in-out border rounded-md focus:outline-none focus:ring focus:border-blue-300 font-normal hover:font-semibold;
   }
   
-  /* Grid Container */
-  .grid-container {
-    @apply grid gap-4;
-  }
-  
   /* Responsive Grid Columns */
   .md-grid-cols-2 {
     @apply md:grid-cols-2;
@@ -57,4 +52,8 @@
   .lg-grid-cols-3 {
     @apply lg:grid-cols-3;
   }
-  
+
+  .grid-container{
+    display: grid;
+    gap: 8px;
+  }

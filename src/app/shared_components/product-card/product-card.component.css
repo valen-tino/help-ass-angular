@@ -1,5 +1,5 @@
 .card-container {
-    @apply relative overflow-hidden bg-white divide-y divide-gray-200 shadow-lg rounded-t-xl;
+    @apply bg-white divide-y divide-gray-200 shadow-lg rounded-t-xl;
   }
   
   .image-container {
@@ -7,7 +7,7 @@
   }
   
   .image {
-    @apply w-full h-full bg-cover rounded-tr-xl rounded-t-xl;
+    @apply object-cover object-center w-full h-full bg-cover rounded-tr-xl rounded-t-xl;
   }
   
   .content-container {
@@ -15,11 +15,11 @@
   }
   
   .category {
-    @apply text-gray-800;
+    @apply px-4 py-1.5 text-gray-700 rounded-full bg-[#fc972e];
   }
   
   .title {
-    @apply text-xl font-semibold text-gray-800;
+    @apply my-2 text-xl font-semibold text-gray-800;
   }
   
   .excerpt {
@@ -27,7 +27,7 @@
   }
   
   .price {
-    @apply text-gray-800;
+    @apply text-[#fc972e] text-2xl font-bold;
   }
   
   .merchant-info {
