@@ -176,6 +176,19 @@
         "available": true,
         "price": 14000,
         "purchaseLink": "https://example.com/penang-national-park"
+      },
+      {
+        "id": 11,
+        "merchantID": 5000,
+        "slug": "penang-butterfly-park",
+        "image": "entopia.png",
+        "title": "Penang Butterfly Park",
+        "category": "Amusement Park",
+        "excerpt": "Set off on an adventure where learning and curiosity collide, bringing the enchantment of the insect realm to life.",
+        "description": "Experience the enchanted world of Penang's Butterfly Park, Entopia, where nature and magic collide in a colorful tapestry.",
+        "available": true,
+        "price": 16000,
+        "purchaseLink": "https://example.com/"
       }
     ]
   },
@@ -188,7 +201,7 @@
     "rating": 4.5,
     "products": [
       {
-        "id": 11,
+        "id": 12,
         "merchantID": 6000,
         "slug": "melaka-wonderland",
         "image": "melaka-wonderland.png",
@@ -201,7 +214,7 @@
         "purchaseLink": "https://example.com/melaka-wonderland"
       },
       {
-        "id": 12,
+        "id": 13,
         "merchantID": 6000,
         "slug": "a-famosa-safari-wonderland",
         "image": "a-famosa-safari-wonderland.png",
@@ -214,7 +227,7 @@
         "purchaseLink": "https://example.com/a-famosa-safari-wonderland"
       },
       {
-        "id": 13,
+        "id": 14,
         "merchantID": 6000,
         "slug": "bayou-lagoon-water-park",
         "image": "bayou-lagoon.png",
@@ -237,7 +250,7 @@
     "rating": 4.5,
     "products": [
       {
-        "id": 14,
+        "id": 15,
         "merchantID": 7000,
         "slug": "perak-cave-temple",
         "image": "perak-cave-temple.png",
@@ -250,7 +263,7 @@
         "purchaseLink": "https://example.com/perak-cave-temple"
       },
       {
-        "id": 15,
+        "id": 16,
         "merchantID": 7000,
         "slug": "lost-world-of-tambun",
         "image": "lost-world-of-tambun.png",
@@ -261,6 +274,19 @@
         "available": true,
         "price": 16000,
         "purchaseLink": "https://example.com/lost-world-of-tambun"
+      },
+      {
+        "id": 17,
+        "merchantID": 7000,
+        "slug": "qin-xin-ling-leisure",
+        "image": "qin-xin-ling-village.png",
+        "title": "Qin Xin Ling Leisure & Cultural Village",
+        "category": "Leisure",
+        "excerpt": "Enjoy traditional performances and indulge yourself in the timeless beauty of Qin Xin Ling.",
+        "description": "Get this immersive experience that seamlessly combines the natural beauty of Ipoh's surroundings with ancient-chinese traditions.",
+        "available": true,
+        "price": 20000,
+        "purchaseLink": "https://example.com/qin-xin-ling-leisure"
       }
     ]
   }
