@@ -18,10 +18,10 @@ export class MerchantsComponent implements OnInit {
 
   loadData() {
     this.ProductService.getMerchantsData().subscribe(
-      (data: any[]) => {
+      (data: Merchant[]) => {
         this.merchant = data;
       },
-      (error: any) => {
+      (error: Merchant) => {
         console.error('Error loading Merchant data:', error);
       }
     );

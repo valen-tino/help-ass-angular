@@ -19,17 +19,6 @@
   </div>
   
   <div>
-    <div class="merchant-info">
-      <img type="image/svg+xml" class="merchant-image" src="assets/images/profile.svg" alt="{{ merchant.name }} Image">
-      <div class="merchant-details">
-        <p class="merchant-name"><strong>
-          {{ merchant.name }}</strong>
-        </p>
-        <p class="merchant-location">
-          {{ merchant.location }} - {{ merchant.rating }} Stars
-        </p>
-      </div>
-    </div>
     <div class="actions">
       <a class="view-button" [routerLink]="['/products', product.slug]">
         View Product

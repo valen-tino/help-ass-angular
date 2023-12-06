@@ -30,51 +30,62 @@
     <span class="text-accent-bg">Products</span>
   </h2>
 
-  <!-- Product Tabs -->
+  <!-- Product Tabs for Category Filtering -->
   <div class="product-tabs">
-    <button *ngFor="let category of uniqueCategories" (click)="filterProductsByCategory(category)" class="tab-button">
-      {{ category }}
+    <!-- Button to Clear Category Filter -->
+    <button (click)="clearCategoryFilter()" class="tab-button">
+        All Categories
     </button>
-  </div><br/>
+    
+    <!-- Buttons for Filtering by Individual Categories -->
+    <button *ngFor="let category of uniqueCategories" (click)="filterProductsByCategory(category)" class="tab-button">
+        {{ category }}
+    </button>
+  </div>
 
-  <!-- Grid -->
+  <!-- Line break for better separation -->
+  <br/>
+
+  <!-- Grid for Displaying Filtered Products -->
   <div class="grid gap-4" [ngClass]="{
     'grid-cols-1': getFilteredProducts().length == 1,
     'md:grid-cols-3 md:grid-rows-3': getFilteredProducts().length > 1,
   }">
-    <!-- Card Loop -->
-    <app-product-card 
-
-      [ngClass]="{
-        'md:w-2/6': getFilteredProducts().length == 1,
-        'w-full': getFilteredProducts().length == 2,
-        'w-auto': getFilteredProducts().length > 2,
-      }" 
-
-      *ngFor="let product of getFilteredProducts()" 
-      [product]="product" [merchant]="getMerchants(product)">
+    <!-- Loop through Filtered Products and Display Product Cards -->
+    <app-product-card
+        [ngClass]="{
+            'md:w-2/6': getFilteredProducts().length == 1,
+            'w-full': getFilteredProducts().length == 2,
+            'w-auto': getFilteredProducts().length > 2,
+        }"
+        *ngFor="let product of getFilteredProducts()"
+        [product]="product"
+        [merchant]="getMerchants(product)">
     </app-product-card>
-    <!-- End Card -->
+    <!-- End of Product Card Loop -->
   </div>
+  
   <!-- End Grid -->
  <br/>
   <!-- component -->
   <div class="bg-[#fc972e] rounded-2xl">
     <div class="lg:grid lg:grid-cols-2">
         <div class="max-w-3xl px-10 py-24 mx-auto lg:px-0 lg:max-w-md">
-            <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">
-                <span class="block">Ready to dive in?</span>
-                <span class="block">Start your free trial today.</span>
-            </h2>
-            <p class="mt-5 text-gray-900">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
-            <div class="inline-block mt-5 shadow">
-                <a href="#" class="inline-block px-4 py-3 font-medium text-[#fc972e] bg-white border border-transparent rounded-md hover:bg-[#fc972e]">Sign up for free</a>
-            </div>
+          <h2 class="promo-title">
+            <span class="block">Explore New Horizons with</span>
+            <span class="block">PromoTourism!</span>
+          </h2>
+          <p class="promo-text">
+            Elevate your business with PromoTourism, your gateway to reaching a wider audience in the heart of Malaysia's vibrant tourism industry. Join us and showcase your offerings to eager travelers seeking unforgettable experiences.
+          </p>
+          <div class="banner-container">
+            <a href="#" class="cta-button">
+                Register Your Business Now!
+            </a>
+          </div>
         </div>
         <div class="lg:relative lg:mt-16">
-            <img class="object-cover object-center w-full lg:absolute lg:inset-0 h-60 lg:h-full lg:rounded-tl-md" src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="Woman workcation on the beach">
+            <img class="object-cover object-center w-full lg:absolute lg:inset-0 h-60 lg:h-full lg:rounded-tl-md" src="assets/images/legoland-johor-bahru.jpg" alt="Come and join us!">
         </div>
     </div>
   </div>

@@ -1,3 +1,19 @@
 .main-content {
-    @apply max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24;
+    @apply max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24 flex flex-col;
   }
+
+    /* Heading Text */
+    .text-heading {
+      @apply text-4xl font-bold text-gray-800 md:text-5xl lg:text-6xl dark:text-gray-200;
+    }
+    
+    /* Highlighted Text */
+    .text-highlight-bg {
+      @apply font-bold text-[#fc972e] bg-clip-text;
+    }
+    
+    /* Accent Text */
+    .text-accent-bg {
+      @apply font-bold text-[#1a5a64] bg-clip-text;
+    }
+    

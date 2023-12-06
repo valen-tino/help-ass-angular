@@ -12,11 +12,13 @@ export class MerchantDashboardComponent {
   uniqueCategories: string[] = [];
   selectedCategory: string | null = null;
   selectedMerchantName: string | null = null;
+  manuallyInsertedMerchantName: string | null = null;
 
   constructor(private ProductService: ProductService) {}
 
   ngOnInit() {
     this.loadData();
+    this.setManuallyInsertedMerchantName('Johor Bahru Exciting Tours');
   }
 
   loadData() {
@@ -58,14 +60,18 @@ export class MerchantDashboardComponent {
     this.selectedMerchantName = null;
   }
 
+    setManuallyInsertedMerchantName(merchantName: string): void {
+      this.manuallyInsertedMerchantName = merchantName;
+      // Reset selected category when manually inserting merchant name
+      this.selectedCategory = null;
+    }
+
   getFilteredProducts(): Product[] {
-    if (this.selectedMerchantName) {
-      const selectedMerchant = this.getMerchantByName(this.selectedMerchantName);
+    if (this.manuallyInsertedMerchantName) {
+      const selectedMerchant = this.getMerchantByName(this.manuallyInsertedMerchantName);
       if (selectedMerchant) {
         return this.featuredProducts.filter((product) => this.getMerchants(product) === selectedMerchant);
       }
-    } else if (this.selectedCategory) {
-      return this.featuredProducts.filter((product) => product.category === this.selectedCategory);
     }
     return this.featuredProducts;
   }

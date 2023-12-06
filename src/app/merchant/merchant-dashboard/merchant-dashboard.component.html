@@ -8,37 +8,33 @@
 ></app-hero-section>
 
 <div class="main-content">
-
-  <div class="flex flex-row gap-4">
-    <div class="flex flex-col">
-      <label for="category">Filter by Category:</label>
-      <select id="category" [(ngModel)]="selectedCategory">
-        <option value="">All Categories</option>
-        <option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</option>
-      </select>
+  
+  <div class="flex flex-row justify-between py-4">
+    <h2 class="block py-5 text-heading">  
+      <span class="text-highlight-bg">Your </span>
+      <span class="text-accent-bg">Products</span>
+    </h2>
+    
+    <div class="flex items-center justify-center">
+      <button class="px-4 py-2.5 rounded-lg bg-[#fc972e] h-fit font-semibold text-white">
+        + Add New Product
+      </button>
     </div>
 
-    <div class="flex flex-col">
-        <label for="merchant">Filter by Merchant:</label>
-        <select id="merchant" [(ngModel)]="selectedMerchantName" (ngModelChange)="clearCategoryAndMerchantFilter()">
-          <option value="">All Merchants</option>
-          <option *ngFor="let merchant of merchant" [value]="merchant.name">{{ merchant.name }}</option>
-        </select>
-      </div>
   </div>
 
-  <!-- Display products from a single merchant -->
-  <div class="grid gap-4" [ngClass]="{
-    'grid-cols-1': getFilteredProducts().length == 1,
-    'md:grid-cols-3 md:grid-rows-3': getFilteredProducts().length > 1,
-  }">
-    <app-product-card-merchant
-      *ngFor="let product of getFilteredProducts()"
-      [product]="product"
-      [merchant]="getMerchants(product)"
-    >
-    </app-product-card-merchant>
-  </div>
+  <div class="flex flex-row gap-4">
+    <div class="grid gap-4" [ngClass]="{
+      'grid-cols-1': getFilteredProducts().length == 1,
+      'md:grid-cols-3 md:grid-rows-3': getFilteredProducts().length > 1,
+    }">
+      <app-product-card-merchant
+        *ngFor="let product of getFilteredProducts()"
+        [product]="product"
+        [merchant]="getMerchants(product)"
+      >
+      </app-product-card-merchant>
+    </div>
 
 </div>
   

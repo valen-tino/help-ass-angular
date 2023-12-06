@@ -43,6 +43,7 @@ import { CustomerComponent } from './shared_components/navbar/customer/customer.
 import { FormControlImageComponent } from './shared_components/form-control-image/form-control-image.component';
 
 import { ProductCardMerchantComponent } from './shared_components/product-card-merchant/product-card-merchant.component';
+import { PurchaseModalComponent } from './shared_components/purchase-modal/purchase-modal.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { ProductCardMerchantComponent } from './shared_components/product-card-m
     FormControlInputComponent,
     CustomerComponent,
     FormControlImageComponent,
-    ProductCardMerchantComponent
+    ProductCardMerchantComponent,
+    PurchaseModalComponent
     ],
   imports: [
     BrowserModule,

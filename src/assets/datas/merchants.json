@@ -8,12 +8,13 @@
     "rating": 2,
     "products": [
       {
-        "id": 1,
+        "id": 1280,
         "merchantID" : 1000,
+        "product-rating":3,
         "slug":"kl-shopping-extravaganza-test",
         "image": "pexels-alex-azabache-3243021.jpg",
         "title": "KL Shopping Extravaganza Test",
-        "category": "Test Category",
+        "category": "Shopping Tour",
         "excerpt": "Indulge in a unique shopping experience with our curated tour in the heart of Kuala Lumpur.",
         "description": "Explore the vibrant markets and shopping districts, and shop for the finest local and international products.",
         "available": true,
@@ -21,8 +22,9 @@
         "purchaseLink": "https://example.com/kl-shopping-tour"
       },
       {
-        "id": 2,
+        "id": 1320,
         "merchantID" : 1000,
+        "product-rating":4,
         "slug":"kl-birdwatchers-paradise",
         "image": "pexels-ariful-haque-3823436.jpg",
         "title": "KL Birdwatcher’s Paradise",
@@ -44,8 +46,9 @@
     "rating": 3,
     "products": [
       {
-        "id": 3,
+        "id": 2103,
         "merchantID" : 2000,
+        "product-rating":4,
         "slug":"selangor-shopping-extravaganza",
         "image": "pexels-niko-cezar-3731615.jpg",
         "title": "Selangor Shopping Extravaganza",
@@ -57,8 +60,9 @@
         "purchaseLink": "https://example.com/selangor-shopping-tour"
       },
       {
-        "id": 4,
+        "id": 2634,
         "merchantID" : 2000,
+        "product-rating":2,
         "slug":"selangor-luxury-golf-retreat",
         "image": "pexels-zukiman-mohamad-22804.jpg",
         "title": "Selangor Luxury Golf Retreat",
@@ -80,8 +84,9 @@
     "rating": 4.5,
     "products": [
       {
-        "id": 5,
+        "id": 3453,
         "merchantID" : 3000,
+        "product-rating":2,
         "slug":"malaysian-diving-adventure",
         "image": "pexels-jeremy-bishop-2765871.jpg",
         "title": "Malaysian Deep Blue Expedition",
@@ -103,8 +108,9 @@
     "rating": 4.3,
     "products": [
       {
-        "id": 6,
+        "id": 4231,
         "merchantID": 4000,
+        "product-rating":4,
         "slug": "johor-bahru-thrilling-legoland",
         "image": "legoland-johor-bahru.jpg",
         "title": "Johor Bahru's Thrilling Legoland",
@@ -116,8 +122,9 @@
         "purchaseLink": "https://example.com/johor-bahru-thrilling-legoland"
       },
       {
-        "id": 7,
+        "id": 4653,
         "merchantID": 4000,
+        "product-rating":3,
         "slug": "johor-bahru-angry-birds-activity-park",
         "image": "angry-bird-park.png",
         "title": "Johor Bahru's Angry Birds Activity Park",
@@ -129,8 +136,9 @@
         "purchaseLink": "https://example.com/johor-bahru-angry-birds-activity-park"
       },
       {
-        "id": 8,
+        "id": 4823,
         "merchantID": 4000,
+        "product-rating":4,
         "slug": "johor-zoo",
         "image": "johor-zoo.png",
         "title": "Johor Zoo",
@@ -152,8 +160,9 @@
     "rating": 4.4, 
     "products": [
       {
-        "id": 9,
+        "id": 5643,
         "merchantID": 5000,
+        "product-rating":2,
         "slug": "penang-teddyville-museum",
         "image": "teddyville.png",
         "title": "Penang Teddyville Museum",
@@ -165,8 +174,9 @@
         "purchaseLink": "https://example.com/penang-teddyville-museum"
       },
       {
-        "id": 10,
+        "id": 5843,
         "merchantID": 5000,
+        "product-rating":3,
         "slug": "penang-national-park",
         "image": "penang-national-park.png",
         "title": "Penang National Park",
