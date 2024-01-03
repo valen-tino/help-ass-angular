@@ -72,7 +72,7 @@
   }
 
   .cta-button {
-    @apply inline-block px-4 py-3 font-medium text-[#fc972e] bg-white border border-transparent rounded-md font-bold hover:bg-[#fc972e];
+    @apply inline-block px-4 py-3 font-medium text-[#fc972e] bg-white border border-transparent rounded-md hover:font-bold;
   }
 
   .banner-container {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService, Merchant } from 'src/app/services/product-service.service';
+import { MainApiServiceService, Merchant } from 'src/app/services/main-api-service.service';
 
 @Component({
   selector: 'app-merchants',
@@ -10,20 +10,20 @@ import { ProductService, Merchant } from 'src/app/services/product-service.servi
 export class MerchantsComponent implements OnInit {
   merchant: Merchant[] = []; // Change the type based on your merchant data structure
 
-  constructor(private ProductService: ProductService) {}
+  constructor(private MainApiService: MainApiServiceService) {}
 
   ngOnInit() {
     this.loadData();
   }
 
   loadData() {
-    this.ProductService.getMerchantsData().subscribe(
-      (data: Merchant[]) => {
-        this.merchant = data;
+    this.MainApiService.getAllMerchantsSimple().subscribe({
+      next: (merchants: Merchant[]) => {
+        this.merchant = merchants;
+        console.log(this.merchant); 
       },
-      (error: Merchant) => {
-        console.error('Error loading Merchant data:', error);
-      }
-    );
-  }
+      error: error => console.error('Error loading merchants:', error.message),
+      complete: () => console.log('Merchant loading complete') // Optional
+    });
+  }  
 }

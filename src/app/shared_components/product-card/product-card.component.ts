@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Merchant, Product } from '../../services/product-service.service'; // Make sure to import the interfaces
+import { Merchant, Product } from '../../services/main-api-service.service'; // Make sure to import the interfaces
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',

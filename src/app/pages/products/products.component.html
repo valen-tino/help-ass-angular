@@ -1,4 +1,4 @@
-<app-main></app-main>
+<!--<app-main></app-main>
 <app-hero-section
   [backgroundUrl]="'pexels-niko-cezar-3731615.jpg'"
   [headingText]="'Our Products'"
@@ -7,7 +7,7 @@
   [buttonUrl]="'#'"
 ></app-hero-section>
 
-<!-- Card Blog -->
+ Card Blog 
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto flex flex-col md:flex-row gap-4">
   
   
@@ -29,7 +29,7 @@
     </div>
   </div>
   
-  <!-- Display products -->
+ Display products 
   <div class="grid w-full gap-4 md:w-3/4" [ngClass]="{
     'grid-cols-1': getFilteredProducts().length == 1,
     'md:grid-cols-3 md:grid-rows-3': getFilteredProducts().length > 1,
@@ -43,6 +43,49 @@
     }"
     [product]="product"
     [merchant]="getMerchants(product)"
+    >
+    </app-product-card>
+  </div>
+</div>-->
+
+<app-main></app-main>
+<app-hero-section
+  [backgroundUrl]="'pexels-niko-cezar-3731615.jpg'"
+  [headingText]="'Our Products'"
+  [subheadingText]="'Explore our curated selection of tourism products at unbeatable prices.'"
+  [buttonText]="'Products'"
+  [buttonUrl]="'#'"
+></app-hero-section>
+
+<!-- Card Blog -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto flex flex-col md:flex-row gap-4">
+  
+  <div class="flex-col w-full md:w-1/4 gap-y-6">
+    <!-- Filter by Category -->
+    <div class="flex flex-col">
+      <label for="category" class="mb-1">Filter by Category:</label>
+      <select id="category" [(ngModel)]="selectedCategory" (ngModelChange)="filterProductsByCategory(selectedCategory)" class="p-2 border rounded">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
+    <br/>
+    <!-- Removed Merchant filter as it is not implemented in the component -->
+  </div>
+  
+  <!-- Display products -->
+  <div class="grid w-full gap-4 md:w-3/4" [ngClass]="{
+    'grid-cols-1': getFilteredProducts().length == 1,
+    'md:grid-cols-3 md:grid-rows-3': getFilteredProducts().length > 1,
+  }">
+    <app-product-card
+      *ngFor="let product of getFilteredProducts()"
+      [ngClass]="{
+        'md:w-2/6': filteredProductsLength === 1,
+        'w-full': filteredProductsLength === 2,
+        'w-auto': filteredProductsLength > 2,
+      }"
+      [product]="product"
     >
     </app-product-card>
   </div>

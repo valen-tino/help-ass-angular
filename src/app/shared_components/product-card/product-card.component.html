@@ -1,43 +1,36 @@
-<div *ngIf="product.available" class="card-container">
+<!-- <div *ngIf="product.avaliable" class="card-container"> 
 
+
+
+</div> -->
+
+
+
+<div *ngIf="product.avaliable">
   <div class="image-container">
-    <img [src]="'../../../assets/images/' + product.image" [alt]="product.title" class="image">
+    <!-- Assuming the first image in the array is the primary image -->
+    <img [src]="'assets/images/' + product.productImages[0]" [alt]="product.name" class="image">
   </div>
   <div class="content-container">
-    <span class="category"><strong>
-      {{ product.category }}</strong>
-    </span>
-    <h3 class="title">
-      {{ product.title }}
-    </h3>
-    <p class="excerpt">
-      {{ product.excerpt }}
-    </p>
-    <p class="price">
-      {{ product.price }} RM
-    </p>
+    <span class="category"><strong>{{ product.category }}</strong></span>
+    <h3 class="title">{{ product.name }}</h3>
+    <p class="excerpt">{{ product.excerpt }}</p>
+    <p class="price">{{ product.price }} RM</p>
   </div>
   
   <div>
     <div class="merchant-info">
-      <img type="image/svg+xml" class="merchant-image" src="assets/images/profile.svg" alt="{{ merchant.name }} Image">
+      <img class="merchant-image" src="assets/images/profile.svg" alt="{{ product.merchantName }} Image">
       <div class="merchant-details">
-        <p class="merchant-name"><strong>
-          {{ merchant.name }}</strong>
-        </p>
+        <p class="merchant-name"><strong>{{ product.merchantName }}</strong></p>
         <p class="merchant-location">
-          {{ merchant.location }} - {{ merchant.rating }} Stars
+          {{ product.companyRegionLocation }} - {{ product.rating }} Stars
         </p>
       </div>
     </div>
     <div class="actions">
-      <a class="view-button" [routerLink]="['/products', product.slug]">
-        View Details
-      </a>
-      <a class="purchase-button" [href]="product.purchaseLink">
-        Purchase Now
-      </a>
+      <a class="view-button" [routerLink]="['/products', product.slug]">View Details</a>
+      <a class="purchase-button" >Purchase Now</a>
     </div>
   </div>
-
 </div>
