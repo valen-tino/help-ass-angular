@@ -1,0 +1,58 @@
+<app-main></app-main>
+
+<div *ngIf="product">
+  <section class="overflow-hidden text-gray-700 bg-white body-font">
+    <div class="container px-5 py-20 mx-auto">
+      <div class="flex flex-col mx-auto md:flex-row">      
+        <div class="flex flex-col gap-2 mx-auto">
+            <!-- Main Image -->
+            <img [src]="product.productImages[selectedImageIndex]" alt="product.image" class="object-cover object-center w-4/5 border border-gray-200 cursor-pointer h-96 rounded-2xl" (click)="openLightbox(selectedImageIndex)" />
+
+            <!-- Thumbnails -->
+            <div class="flex mb-2 space-x-1">
+              <ng-container *ngFor="let image of product.productImages; let i = index">
+                <img [src]="image" alt="Thumbnail" class="object-cover w-24 h-16 cursor-pointer"
+                     [class.border-2]="selectedImageIndex === i"
+                     [class.border-gray-500]="selectedImageIndex !== i"
+                     (click)="openLightbox(i)" />
+              </ng-container>
+            </div>     
+        
+            <!-- Lightbox Overlay -->
+            <div *ngIf="lightboxOpen" class="fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-75">
+              <div class="flex items-center justify-center h-full">
+                <img [src]="product.productImages[selectedImageIndex]" class="max-w-full max-h-full p-4" />
+                <button class="absolute top-0 right-0 m-4 text-white" (click)="closeLightbox()">Close</button>
+              </div>
+            </div>
+        </div>
+        <br/>
+        <div class="w-full mt-6 lg:w-1/2 lg:pl-2 lg:py-6 lg:mt-0">
+          <!-- Breadcrumb -->
+          <ol class="flex items-center mt-2 md:mt-0 whitespace-nowrap" aria-label="Breadcrumb">
+                <!-- Your breadcrumb content -->
+          </ol>
+          
+          <!-- Product Details -->
+          <div class="mt-5">
+            <h2 class="text-sm tracking-wide text-gray-500">{{ product.category }}</h2>
+            <h1 class="mb-1 text-3xl font-medium text-gray-900 title-font">{{ product.name }}</h1>
+          </div>
+          
+          <div class="mt-5">
+            <p>Description:</p>
+            <p class="leading-relaxed break-words whitespace-pre-wrap text-md">{{ product.description }}</p>
+          </div>
+
+          <!-- PayPal and Purchase Info -->
+          
+          <div class="flex mt-5">
+            <span class="text-2xl font-medium text-gray-900 title-font">{{ product.price }} RM / Pax</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+</div>

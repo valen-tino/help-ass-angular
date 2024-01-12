@@ -9,7 +9,7 @@
 <div *ngIf="product.avaliable">
   <div class="image-container">
     <!-- Assuming the first image in the array is the primary image -->
-    <img [src]="'assets/images/' + product.productImages[0]" [alt]="product.name" class="image">
+    <img [src]="product.productImages[0]" [alt]="product.name" class="image">
   </div>
   <div class="content-container">
     <span class="category"><strong>{{ product.category }}</strong></span>

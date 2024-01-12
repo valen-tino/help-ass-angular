@@ -12,7 +12,7 @@ import { ManageProductsComponent } from './merchant/manage-products/manage-produ
 import { CustDashboardComponent } from './customer/cust-dashboard/cust-dashboard.component';
 
 import { ProductListComponent } from './customer/product-list/product-list.component';
-import { ProductDetailsComponent } from './customer/product-details/product-details.component';
+import { NewProductDetailsComponent } from './customer/new-product-details/new-product-details.component';
 
 import { PurchaseProductComponent } from './customer/purchase-product/purchase-product.component';
 import { PurchaseReceiptComponent } from './customer/purchase-receipt/purchase-receipt.component';
@@ -26,6 +26,8 @@ import {AboutUsComponent} from './pages/about-us/about-us.component';
 import {ContactUsComponent} from './pages/contact-us/contact-us.component';
 import { MerchantsComponent } from './pages/merchants/merchants.component';
 
+import { AuthGuardService as AuthGuard } from './services/AuthGuard.service';
+
 
 
 const routes: Routes = [
@@ -33,15 +35,14 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'register/merchant', component: RegisterMerchantComponent },
 
-  { path: 'merchant/dashboard', component: MerchantDashboardComponent },
-  { path: 'merchant/dashboard/manage-products', component: ManageProductsComponent },
+  { path: 'merchant/dashboard', component: MerchantDashboardComponent, canActivate: [AuthGuard] },
+  { path: 'merchant/dashboard/manage-products', component: ManageProductsComponent, canActivate: [AuthGuard] },
 
-  { path: 'customer/dashboard', component: CustDashboardComponent },
-  { path: 'customer/product-list', component: ProductListComponent },
-  { path: 'customer/product-details', component: ProductDetailsComponent },
-  { path: 'customer/purchase-product', component: PurchaseProductComponent },
-  { path: 'customer/purchase-receipt', component: PurchaseReceiptComponent },
-  { path: 'customer/transaction-history', component: TransactionHistoryComponent },
+  { path: 'customer/dashboard', component: CustDashboardComponent, canActivate: [AuthGuard] },
+  { path: 'customer/product-list', component: ProductListComponent, canActivate: [AuthGuard] },
+  { path: 'customer/purchase-product', component: PurchaseProductComponent, canActivate: [AuthGuard] },
+  { path: 'customer/purchase-receipt', component: PurchaseReceiptComponent, canActivate: [AuthGuard] },
+  { path: 'customer/transaction-history', component: TransactionHistoryComponent, canActivate: [AuthGuard] },
 
   { path: 'admin/merchant-approval', component: MerchantApprovalComponent },
 
@@ -49,9 +50,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
 
   { path: 'products', component: ProductsComponent },
-  { path: 'products/:slug', component: ProductDetailsComponent },
+  { path: 'products/:slug', component: NewProductDetailsComponent },
 
-  { path: 'user/dashboard', component: CustDashboardComponent},
+  { path: 'user/dashboard', component: CustDashboardComponent, canActivate: [AuthGuard]},
   
   { path: 'merchants', component: MerchantsComponent },
   { path: 'about-us', component: AboutUsComponent },

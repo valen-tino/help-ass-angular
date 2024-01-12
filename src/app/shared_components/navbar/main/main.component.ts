@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener  } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -7,7 +7,15 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
   showMenu = false;
+  isScrolled = false;
+
   toggleNavbar(){
     this.showMenu = !this.showMenu;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    const yOffset = window.scrollY;
+    this.isScrolled = yOffset > 0;
   }
 }

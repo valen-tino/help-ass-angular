@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, NavigationEnd } from '@angular/router';
+import { MainApiServiceService } from '../../services/main-api-service.service';
+
+type UserType = 'customer' | 'merchant';
 
 @Component({
   selector: 'app-login',
@@ -9,39 +13,56 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder, 
+    private apiService: MainApiServiceService,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
+      userType: ['customer', Validators.required] 
+    });
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        console.log('NavigationEnd:', event);
+      }
     });
   }
 
   onSubmit() {
+    if (this.loginForm.invalid) {
+      alert('Please fill in all required fields with valid data.');
+      return;
+    }
 
-    // Perform login logic here
-    if (this.loginForm.valid) {
+    const { email, password, userType } = this.loginForm.value;
 
-      if(this.loginForm.value.email == 'customer123@gmail.com' && this.loginForm.value.password == 'newCust123'){
-        alert('Welcome back Customer!');
-        window.location.href = '/user/dashboard';
-      }
+    this.apiService.login({ email, password, userType }).subscribe(
+      response => {
+        localStorage.setItem('jwt', response.token);
 
-      else if(this.loginForm.value.email == 'merchant123@gmail.com' && this.loginForm.value.password == 'newMer123'){
-        alert('Welcome back Merchant!');
-        window.location.href = '/merchant/dashboard';
-      }
+        if (userType === 'merchant' && response.merchantId) {
+          localStorage.setItem('merchantId', response.merchantId);
+        }
 
-      else if(this.loginForm.value.email == 'admin_ministry@admin.com' && this.loginForm.value.password == 'ministry123'){
-        alert('Welcome back Ministry');
-        window.location.href = '/admin/merchant-approval';
-      }
-
-      else{
+        const dashboardRoute = this.getDashboardRoute(userType);
+        this.router.navigate([dashboardRoute]);
+      },
+      error => {
         alert('Invalid Credentials! Please make sure that your data is correct.');
       }
- 
-    } else {
-      alert('Please fill in all required fields with valid data.');
-    }
+    );
   }
+  
+  private getDashboardRoute(userType: string): string {
+    const routeMap: { [key in UserType]: string } = {
+      'customer': '/user/dashboard',
+      'merchant': '/merchant/dashboard',
+    };
+    return routeMap[userType as UserType];
+  }
+  
 }
+

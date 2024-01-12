@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from './services/AuthGuard.service';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { NgxPayPalModule } from 'ngx-paypal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +18,6 @@ import { ManageProductsComponent } from './merchant/manage-products/manage-produ
 
 import { CustDashboardComponent } from './customer/cust-dashboard/cust-dashboard.component';
 import { ProductListComponent } from './customer/product-list/product-list.component';
-import { ProductDetailsComponent } from './customer/product-details/product-details.component';
 import { PurchaseProductComponent } from './customer/purchase-product/purchase-product.component';
 import { PurchaseReceiptComponent } from './customer/purchase-receipt/purchase-receipt.component';
 import { TransactionHistoryComponent } from './customer/transaction-history/transaction-history.component';
@@ -34,7 +36,8 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ProductCardComponent } from './shared_components/product-card/product-card.component';
 import { HeroSectionComponent } from './shared_components/hero-section/hero-section.component';
 
-import { ProductService } from './services/product-service.service';
+import { MainApiServiceService } from './services/main-api-service.service';
+
 import { RegisterMerchantComponent } from './auth/register-merchant/register-merchant.component';
 import { SidebarComponent } from './merchant/shared_components/sidebar/sidebar.component';
 import { LoginRegisterComponent } from './shared_components/navbar/hero-breadcrumbs/login-register.component';
@@ -45,16 +48,21 @@ import { FormControlImageComponent } from './shared_components/form-control-imag
 import { ProductCardMerchantComponent } from './shared_components/product-card-merchant/product-card-merchant.component';
 import { PurchaseModalComponent } from './shared_components/purchase-modal/purchase-modal.component';
 
+import { AddProductModalComponent } from './merchant/shared_components/add-product-modal/add-product-modal.component';
+import { NewProductDetailsComponent } from './customer/new-product-details/new-product-details.component';
+import { PaypalButtonComponent } from './shared_components/paypal-button/paypal-button.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
+    AddProductModalComponent,
     LoginComponent,
     RegisterComponent,
     MerchantDashboardComponent,
     ManageProductsComponent,
     CustDashboardComponent,
     ProductListComponent,
-    ProductDetailsComponent,
     PurchaseProductComponent,
     PurchaseReceiptComponent,
     TransactionHistoryComponent,
@@ -76,16 +84,19 @@ import { PurchaseModalComponent } from './shared_components/purchase-modal/purch
     CustomerComponent,
     FormControlImageComponent,
     ProductCardMerchantComponent,
-    PurchaseModalComponent
+    PurchaseModalComponent,
+    NewProductDetailsComponent,
+    PaypalButtonComponent
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPayPalModule
   ],
-  providers: [ProductService],
+  providers: [AuthGuardService,MainApiServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

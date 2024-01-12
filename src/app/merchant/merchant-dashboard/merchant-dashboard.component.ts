@@ -1,83 +1,68 @@
-import { Component } from '@angular/core';
-import { ProductService, Merchant, Product } from '../../services/product-service.service';
+import { Component, OnInit } from '@angular/core';
+import { MainApiServiceService, Merchant, Product } from '../../services/main-api-service.service';
 
 @Component({
   selector: 'app-merchant-dashboard',
   templateUrl: './merchant-dashboard.component.html',
   styleUrls: ['./merchant-dashboard.component.css']
 })
-export class MerchantDashboardComponent {
-  merchant: Merchant[] = [];
+export class MerchantDashboardComponent implements OnInit {
+  merchant: Merchant | null = null;
   featuredProducts: Product[] = [];
   uniqueCategories: string[] = [];
   selectedCategory: string | null = null;
-  selectedMerchantName: string | null = null;
-  manuallyInsertedMerchantName: string | null = null;
 
-  constructor(private ProductService: ProductService) {}
+  showAddProductModal = false;
+
+  constructor(private mainApiService: MainApiServiceService) {}
 
   ngOnInit() {
-    this.loadData();
-    this.setManuallyInsertedMerchantName('Johor Bahru Exciting Tours');
+    this.loadMerchantData();
   }
 
-  loadData() {
-    this.ProductService.getMerchantsData().subscribe(
-      (data: any[]) => {
-        this.merchant = data;
-        this.featuredProducts = data.flatMap(Merchant => Merchant.products);
+  loadMerchantData() {
+    const merchantId = localStorage.getItem('merchantId'); 
+    if (merchantId) {
+      this.mainApiService.getMerchantById(merchantId).subscribe(
+        merchantData => {
+          this.merchant = merchantData;
+          this.loadProducts(merchantId);
+        },
+        error => console.error('Error loading Merchant data:', error)
+      );
+    }
+  }
+
+  loadProducts(merchantId: string) {
+    this.mainApiService.getProductsByMerchantId(merchantId).subscribe(
+      products => {
+        this.featuredProducts = products;
         this.initData();
       },
-      (error: any) => {
-        console.error('Error loading Merchant data:', error);
-      }
+      error => console.error('Error loading products:', error)
     );
   }
 
-  getMerchantByName(merchantName: string): Merchant | null {
-    return this.merchant.find((merchant) => merchant.name === merchantName) || null;
-  }
-
   initData() {
-    this.uniqueCategories = this.getUniqueCategories();
+    this.uniqueCategories = Array.from(new Set(this.featuredProducts.map(product => product.category)));
   }
-
-  getUniqueCategories(): string[] {
-    return Array.from(new Set(this.featuredProducts.map((product) => product.category)));
-  }
-
-  filterProductsByCategoryAndMerchant(category: string): void {
-    this.selectedCategory = category;
-  }
-
-  filterProductsByMerchantName(merchantName: string): void {
-    this.selectedMerchantName = merchantName;
-    this.selectedCategory = null; // Reset selected category when filtering by merchant name
-  }
-
-  clearCategoryAndMerchantFilter(): void {
-    this.selectedCategory = null;
-    this.selectedMerchantName = null;
-  }
-
-    setManuallyInsertedMerchantName(merchantName: string): void {
-      this.manuallyInsertedMerchantName = merchantName;
-      // Reset selected category when manually inserting merchant name
-      this.selectedCategory = null;
-    }
 
   getFilteredProducts(): Product[] {
-    if (this.manuallyInsertedMerchantName) {
-      const selectedMerchant = this.getMerchantByName(this.manuallyInsertedMerchantName);
-      if (selectedMerchant) {
-        return this.featuredProducts.filter((product) => this.getMerchants(product) === selectedMerchant);
-      }
+    if (this.selectedCategory) {
+      return this.featuredProducts.filter(product => product.category === this.selectedCategory);
     }
     return this.featuredProducts;
   }
 
-  getMerchants(product: Product): Merchant {
-    const merchant = this.merchant.find((m) => m.products.some((p) => p.id === product.id));
-    return merchant!;
+  handleProductDeleted(productId: string) {
+    this.featuredProducts = this.featuredProducts.filter(product => product._id !== productId);
+    this.initData();
+  }
+
+  handleNewProduct(product: Product) {
+    // Update your product list with the new product
+    this.featuredProducts.push(product);
+    this.initData();
+    this.showAddProductModal = false; // Close the modal
   }
 }

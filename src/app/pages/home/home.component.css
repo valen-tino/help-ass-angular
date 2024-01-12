@@ -1,5 +1,22 @@
 .hero-container {
-    @apply relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://worldtourismforum.net/wp-content/uploads/2020/10/malaysia.jpg')] before:bg-no-repeat before:bg-top before:bg-cover before:w-full before:h-full before:-z-[1] before:transform before:-translate-x-1/2 bg-gray-700 bg-opacity-50;
+    @apply relative 
+    overflow-hidden 
+    before:absolute 
+    before:top-0 
+    before:start-1/2 
+    before:bg-[url('https://worldtourismforum.net/wp-content/uploads/2020/10/malaysia.jpg')] 
+    before:bg-no-repeat 
+    before:bg-top 
+    before:bg-cover 
+    before:w-full 
+    before:h-full 
+    before:-z-[1] 
+    before:transform 
+    before:-translate-x-1/2 
+    bg-gray-700 
+    bg-opacity-50 
+    py-24
+    -mt-24;
   }
   
   .hero-content {

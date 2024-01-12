@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MainApiServiceService } from '../../../services/main-api-service.service';
 
 @Component({
   selector: 'app-merchant',
@@ -7,7 +9,18 @@ import { Component } from '@angular/core';
 })
 export class MerchantComponent {
   showMenu = false;
-  toggleNavbar(){
+
+  constructor(
+    private apiService: MainApiServiceService,
+    private router: Router
+  ) {}
+
+  toggleNavbar() {
     this.showMenu = !this.showMenu;
+  }
+
+  logout() {
+    this.apiService.logout();
+    this.router.navigate(['/login']); // Navigate to login or home page
   }
 }

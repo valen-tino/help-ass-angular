@@ -1,34 +1,16 @@
-<div *ngIf="product.available" class="card-container">
-
+<div *ngIf="product.avaliable" class="card-container">
   <div class="image-container">
-    <img [src]="'../../../assets/images/' + product.image" [alt]="product.title" class="image">
+    <img [src]="product.productImages[0]" [alt]="product.name" class="image">
   </div>
   <div class="content-container">
-    <span class="category"><strong>
-      {{ product.category }}</strong>
-    </span>
-    <h3 class="title">
-      {{ product.title }}
-    </h3>
-    <p class="excerpt">
-      {{ product.excerpt }}
-    </p>
-    <p class="price">
-      {{ product.price }} RM
-    </p>
+    <span class="category"><strong>{{ product.category }}</strong></span>
+    <h3 class="title">{{ product.name }}</h3>
+    <p class="excerpt">{{ product.excerpt }}</p>
+    <p class="price">{{ product.price }} RM</p>
   </div>
   
-  <div>
-    <div class="actions">
-      <a class="view-button" [routerLink]="['/products', product.slug]">
-        View Product
-      </a>
-      <a class="delete-button" [href]="product.purchaseLink">
-        Delete Product
-      </a>
-    </div>
+  <div class="actions">
+    <button class="view-button" >Edit Product</button>
+    <button class="delete-button" (click)="deleteProduct(product._id)">Delete Product</button>
   </div>
-
-  
-  
 </div>

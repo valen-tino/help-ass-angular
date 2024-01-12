@@ -1,41 +1,49 @@
 <app-merchant></app-merchant>
 <app-hero-section
   [backgroundUrl]="'pexels-zukiman-mohamad-22804.jpg'"
-  [headingText]="'Welcome Back Johor Bahru Exciting Tours!'"
-  [subheadingText]="'You can manage your products here'"
+  [headingText]="'Welcome Back ' + (merchant?.name || 'Merchant') + '!'"
+  [subheadingText]="'Your tour location: ' + (merchant?.companyRegionLocation || 'N/A')"
   [buttonText]="'Merchants Dashboard'"
   [buttonUrl]="'#'"
 ></app-hero-section>
 
 <div class="main-content">
-  
   <div class="flex flex-row justify-between py-4">
-    <h2 class="block py-5 text-heading">  
+    <h2 class="block py-5 text-heading">
       <span class="text-highlight-bg">Your </span>
       <span class="text-accent-bg">Products</span>
     </h2>
-    
+
     <div class="flex items-center justify-center">
-      <button class="px-4 py-2.5 rounded-lg bg-[#fc972e] h-fit font-semibold text-white">
+      <button class="px-4 py-2.5 rounded-lg bg-[#fc972e] h-fit font-semibold text-white" (click)="showAddProductModal = true">
         + Add New Product
       </button>
     </div>
-
+    
   </div>
 
   <div class="flex flex-row gap-4">
     <div class="grid gap-4" [ngClass]="{
       'grid-cols-1': getFilteredProducts().length == 1,
-      'md:grid-cols-3 md:grid-rows-3': getFilteredProducts().length > 1,
+      'md:grid-cols-3 md:grid-rows-3': getFilteredProducts().length > 1
     }">
       <app-product-card-merchant
         *ngFor="let product of getFilteredProducts()"
         [product]="product"
-        [merchant]="getMerchants(product)"
+        [merchant]="merchant"
+        (productDeleted)="handleProductDeleted($event)"
       >
       </app-product-card-merchant>
     </div>
-
+  </div>
 </div>
+
+<app-add-product-modal 
+  *ngIf="showAddProductModal"
+  [merchantId]="merchant?._id"
+  (productAdded)="handleNewProduct($event)"
+  (closeModalEvent)="showAddProductModal = false">
+</app-add-product-modal>
+
   
   

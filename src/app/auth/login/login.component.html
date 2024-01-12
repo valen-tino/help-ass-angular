@@ -12,8 +12,18 @@
                 <h2 class="mt-2.5 text-2xl font-bold text-white mb-2.5">
                     Welcome Back to PromoTourism!
                   </h2>
-        
+                
+
                   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                    <div class="user-type-selection">
+                      <label>
+                        <input type="radio" formControlName="userType" value="customer" checked> Customer
+                      </label>&nbsp;
+                      <label>
+                        <input type="radio" formControlName="userType" value="merchant"> Merchant
+                      </label>
+                    </div>
                   
                       <app-form-control-input label="Email" [type]="'email'" [placeholder]="'Enter your email'" [controlName]="'email'" [currentFormGroup]="loginForm"></app-form-control-input>
                       <app-form-control-input label="Password" [type]="'password'" [placeholder]="'6+ Characters, 1 Capital letter'" [controlName]="'password'" [currentFormGroup]="loginForm"></app-form-control-input>

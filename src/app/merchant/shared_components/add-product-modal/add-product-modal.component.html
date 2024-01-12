@@ -1,0 +1,71 @@
+<!-- add-product-modal.component.html -->
+
+<div class="fixed inset-0 z-50 flex overflow-auto bg-smoke-light">
+    <div class="relative flex flex-col w-full max-w-2xl p-8 m-auto bg-white rounded-lg">
+      <span class="absolute top-0 right-0 p-4">
+        <button (click)="closeModal()" class="text-black">&times;</button>
+      </span>
+      <h2 class="text-2xl font-bold">Add New Product</h2>
+      <form class="mt-4" (ngSubmit)="onSubmit()">
+  
+        <!-- Display merchantId for debugging -->
+        <div class="mb-4">
+          <label class="block text-sm text-gray-700">Merchant ID (for debugging):</label>
+          <p>{{ merchantId }}</p>
+        </div>
+  
+        <!-- Product Name -->
+        <div class="mb-4">
+          <label class="block text-sm text-gray-700" for="name">Product Name:</label>
+          <input type="text" [(ngModel)]="newProduct.name" name="name" class="w-full px-4 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500" required>
+          
+        </div>
+  
+        <!-- Product Description -->
+        <div class="mb-4">
+          <label class="block text-sm text-gray-700" for="description">Description:</label>
+          <textarea [(ngModel)]="newProduct.description" name="description" required  class="w-full px-4 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"></textarea>        
+        </div>
+  
+        <!-- Product Excerpt -->
+        <div class="mb-4">
+          <label class="block text-sm text-gray-700" for="excerpt">Excerpt:</label>
+          <input type="text" [(ngModel)]="newProduct.excerpt" name="excerpt" class="w-full px-4 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500" required>
+        </div>
+        
+        <div class="flex flex-row gap-6">
+            <!-- Product Price -->
+            <div class="col-span-4 mb-4">
+                <label class="block text-sm text-gray-700" for="price">Price:</label>
+                <input type="number" [(ngModel)]="newProduct.price" name="price" class="w-full px-4 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"    required>
+            </div>
+        
+            <!-- Product Category -->
+            <div class="col-span-8 mb-4">
+                <label class="block text-sm text-gray-700" for="category">Category:</label>
+                <input type="text" [(ngModel)]="newProduct.category" name="category" required class="w-full px-4 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500">
+            </div>
+        </div>
+
+        
+  
+        <!-- Product Images Upload -->
+        <div class="mb-4">
+            <label class="block text-sm text-gray-700" for="productImages">Product Images:</label>
+            <input type="file" (change)="handleFileInput($event)" multiple class="w-full px-4 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500">
+        </div>
+        
+        <!-- Image Previews -->
+        <div class="mb-4" *ngIf="imagePreviews.length > 0">
+            <div class="flex space-x-2">
+            <img *ngFor="let image of imagePreviews" [src]="image" class="object-cover w-20 h-20 rounded" />
+            </div>
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" class="w-full px-4 py-2 mt-4 font-bold text-white bg-orange-500 rounded hover:bg-orange-700">Add Product</button>
+      </form>
+    </div>
+  </div>
+  
+  
